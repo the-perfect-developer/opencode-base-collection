@@ -27,7 +27,7 @@ Essential skill collection for OpenCode - the AI-powered coding assistant.
 ## Installation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/the-perfect-developer/opencode-base-collection/main/get.sh | bash
+curl -fsSL https://raw.githubusercontent.com/the-perfect-developer/opencode-base-collection/main/install.sh | bash
 ```
 
 This installs skills to `.opencode/skills/` in your current directory.
