@@ -8,8 +8,8 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-REPO_URL="https://github.com/the-perfect-developer/opencode-base-skills"
-TEMP_DIR="/tmp/opencode-base-skills-$$"
+REPO_URL="https://github.com/the-perfect-developer/opencode-base-collection"
+TEMP_DIR="/tmp/opencode-base-collection-$$"
 
 print_header() {
     echo -e "${BLUE}"
@@ -54,7 +54,7 @@ mkdir -p "$SKILLS_DIR"
 
 echo -e "${BLUE}ℹ${NC} Installing to ${SKILLS_DIR}..."
 
-SOURCE_DIR="${TEMP_DIR}/opencode-base-skills-main/.opencode/skills"
+SOURCE_DIR="${TEMP_DIR}/opencode-base-collection-main/.opencode/skills"
 for skill in command-creation rules-creation skill-creation; do
     if [ -d "${SOURCE_DIR}/${skill}" ]; then
         rm -rf "${SKILLS_DIR}/${skill}"

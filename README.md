@@ -1,4 +1,4 @@
-# OpenCode Base Skills
+# OpenCode Base Collection
 
 ```
    ___                   ___          _      
@@ -8,13 +8,13 @@
   \___/| .__/ \___|_| \____/\___/ \__,_|\___|
        |_|                                     
 
-Base Skills Collection
+Base Collection
 By Dilan D Chandrajith - The Perfect Developer
 ```
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![OpenCode](https://img.shields.io/badge/OpenCode-Skills-blue.svg)](https://opencode.ai)
-[![Maintenance](https://img.shields.io/badge/Maintained-yes-brightgreen.svg)](https://github.com/the-perfect-developer/opencode-base-skills/commits/main)
+[![Maintenance](https://img.shields.io/badge/Maintained-yes-brightgreen.svg)](https://github.com/the-perfect-developer/opencode-base-collection/commits/main)
 
 Essential skill collection for OpenCode - the AI-powered coding assistant.
 
@@ -27,7 +27,7 @@ Essential skill collection for OpenCode - the AI-powered coding assistant.
 ## Installation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/the-perfect-developer/opencode-base-skills/main/get.sh | bash
+curl -fsSL https://raw.githubusercontent.com/the-perfect-developer/opencode-base-collection/main/get.sh | bash
 ```
 
 This installs skills to `.opencode/skills/` in your current directory.
