@@ -65,8 +65,12 @@ Only after receiving user confirmation:
 
 1. Stage all relevant changes: `git add <files>`
 2. Create the commit with the conventional message
-3. Push to the remote repository: `git push`
-4. Verify the push was successful with `git status`
+3. If commit validation fails (from hooks):
+   - Show the validation error logs to the user
+   - Ask the user if they want to take over and fix the issues, or attempt to rerun the commit
+   - Do not proceed with the push until validation passes
+4. Push to the remote repository: `git push`
+5. Verify the push was successful with `git status`
 
 ## Important Notes
 
