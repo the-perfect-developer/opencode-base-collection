@@ -55,13 +55,16 @@ mkdir -p "$SKILLS_DIR"
 echo -e "${BLUE}ℹ${NC} Installing to ${SKILLS_DIR}..."
 
 SOURCE_DIR="${TEMP_DIR}/opencode-base-collection-main/.opencode/skills"
-for skill in command-creation rules-creation skill-creation; do
-    if [ -d "${SOURCE_DIR}/${skill}" ]; then
-        rm -rf "${SKILLS_DIR}/${skill}"
-        cp -r "${SOURCE_DIR}/${skill}" "${SKILLS_DIR}/"
-        echo -e "${GREEN}✓${NC} Installed: ${skill}"
-    fi
-done
+if [ -d "$SOURCE_DIR" ]; then
+    for skill in "${SOURCE_DIR}"/*; do
+        if [ -d "$skill" ]; then
+            skill_name=$(basename "$skill")
+            rm -rf "${SKILLS_DIR}/${skill_name}"
+            cp -r "$skill" "${SKILLS_DIR}/"
+            echo -e "${GREEN}✓${NC} Installed: ${skill_name}"
+        fi
+    done
+fi
 
 # Install to .opencode/commands
 COMMANDS_DIR=".opencode/commands"
