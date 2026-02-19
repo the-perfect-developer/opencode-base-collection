@@ -9,7 +9,7 @@
 #   validate-skill.sh .opencode/skills/my-skill
 #   validate-skill.sh ~/.config/opencode/skills/global-skill
 
-set -euo pipefail
+set -uo pipefail
 
 # Colors for output
 RED='\033[0;31m'
@@ -112,8 +112,8 @@ if ! grep -q "^---$" "$SKILL_FILE"; then
 else
     success "Frontmatter delimiters present"
     
-    # Extract frontmatter (between first and second ---)
-    FRONTMATTER=$(sed -n '/^---$/,/^---$/p' "$SKILL_FILE" | sed '1d;$d')
+    # Extract frontmatter (between first and second --- only)
+    FRONTMATTER=$(awk 'BEGIN{count=0} /^---$/{count++; if(count==1) {in_fm=1; next} else if(count==2) {exit}} in_fm' "$SKILL_FILE")
     
     # Check YAML syntax (basic check)
     if echo "$FRONTMATTER" | grep -qE '^[a-zA-Z_]+:'; then
@@ -128,8 +128,8 @@ echo
 echo "Checking required fields..."
 
 # Check name field
-if grep -q "^name:" "$SKILL_FILE"; then
-    NAME=$(grep "^name:" "$SKILL_FILE" | head -1 | cut -d' ' -f2- | tr -d '"' | tr -d "'")
+if echo "$FRONTMATTER" | grep -q "^name:"; then
+    NAME=$(echo "$FRONTMATTER" | grep "^name:" | head -1 | cut -d' ' -f2- | tr -d '"' | tr -d "'")
     success "name field present: ${NAME}"
     
     # Validate name pattern
@@ -165,12 +165,12 @@ else
 fi
 
 # Check description field
-if grep -q "^description:" "$SKILL_FILE"; then
-    # Extract description (may be multi-line)
-    DESCRIPTION=$(sed -n '/^description:/,/^[a-z_-]*:/p' "$SKILL_FILE" | sed '$d' | sed '1s/^description: *//')
+if echo "$FRONTMATTER" | grep -q "^description:"; then
+    # Extract description from frontmatter only (may be multi-line)
+    DESCRIPTION=$(echo "$FRONTMATTER" | sed -n '/^description:/,/^[a-z_-]*:/p' | sed '$d' | sed '1s/^description: *//')
     # If single line, just get it directly
     if [[ -z "$DESCRIPTION" ]]; then
-        DESCRIPTION=$(grep "^description:" "$SKILL_FILE" | head -1 | cut -d' ' -f2-)
+        DESCRIPTION=$(echo "$FRONTMATTER" | grep "^description:" | head -1 | cut -d' ' -f2-)
     fi
     
     success "description field present"

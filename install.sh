@@ -63,6 +63,33 @@ for skill in command-creation rules-creation skill-creation; do
     fi
 done
 
+# Install GitHub workflow
+WORKFLOW_SOURCE="${TEMP_DIR}/opencode-base-collection-main/.github/workflows/validate-bash.yml"
+WORKFLOW_DIR=".github/workflows"
+if [ -f "$WORKFLOW_SOURCE" ]; then
+    mkdir -p "$WORKFLOW_DIR"
+    cp "$WORKFLOW_SOURCE" "$WORKFLOW_DIR/"
+    echo -e "${GREEN}✓${NC} Installed: GitHub workflow (validate-bash.yml)"
+fi
+
+# Install git hooks
+HOOKS_SOURCE="${TEMP_DIR}/opencode-base-collection-main/.githooks"
+if [ -d "$HOOKS_SOURCE" ]; then
+    rm -rf .githooks
+    cp -r "$HOOKS_SOURCE" .
+    chmod +x .githooks/*
+    echo -e "${GREEN}✓${NC} Installed: Git hooks directory"
+fi
+
+# Install setup-hooks.sh
+SETUP_HOOKS_SOURCE="${TEMP_DIR}/opencode-base-collection-main/setup-hooks.sh"
+if [ -f "$SETUP_HOOKS_SOURCE" ]; then
+    cp "$SETUP_HOOKS_SOURCE" .
+    chmod +x setup-hooks.sh
+    echo -e "${GREEN}✓${NC} Installed: setup-hooks.sh"
+fi
+
 echo ""
 echo -e "${GREEN}✓${NC} Installation complete!"
 echo -e "${BLUE}ℹ${NC} Skills installed to: ${SKILLS_DIR}"
+echo -e "${BLUE}ℹ${NC} Run ./setup-hooks.sh to enable git hooks"
