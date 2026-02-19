@@ -14,12 +14,12 @@ TEMP_DIR="/tmp/opencode-base-collection-$$"
 print_header() {
     echo -e "${BLUE}"
     cat << "EOF"
-   ___                   ___          _      
-  / _ \ _ __   ___ _ __ / __\___   __| | ___ 
+   ___                   ___          _
+  / _ \ _ __   ___ _ __ / __\___   __| | ___
  | | | | '_ \ / _ \ '_ / /  / _ \ / _` |/ _ \
  | |_| | |_) |  __/ | | /__| (_) | (_| |  __/
   \___/| .__/ \___|_| \____/\___/ \__,_|\___|
-       |_|                                     
+       |_|
 
 Base Skills Installer
 EOF
@@ -61,7 +61,7 @@ if [ -d "$SOURCE_DIR" ]; then
             skill_name=$(basename "$skill")
             rm -rf "${SKILLS_DIR}/${skill_name}"
             cp -r "$skill" "${SKILLS_DIR}/"
-            echo -e "${GREEN}✓${NC} Installed: ${skill_name}"
+            echo -e "  ${GREEN}✓${NC} Installed: ${skill_name}"
         fi
     done
 fi
@@ -77,27 +77,29 @@ if [ -d "$COMMANDS_SOURCE_DIR" ]; then
         if [ -f "$cmd" ]; then
             cmd_name=$(basename "$cmd")
             cp "$cmd" "${COMMANDS_DIR}/"
-            echo -e "${GREEN}✓${NC} Installed command: ${cmd_name}"
+            echo -e "  ${GREEN}✓${NC} Installed command: ${cmd_name}"
         fi
     done
 fi
 
 # Install GitHub workflow
+echo -e "${BLUE}ℹ${NC} Installing git workflows..."
 WORKFLOW_SOURCE="${TEMP_DIR}/opencode-base-collection-main/.github/workflows/validate-bash.yml"
 WORKFLOW_DIR=".github/workflows"
 if [ -f "$WORKFLOW_SOURCE" ]; then
     mkdir -p "$WORKFLOW_DIR"
     cp "$WORKFLOW_SOURCE" "$WORKFLOW_DIR/"
-    echo -e "${GREEN}✓${NC} Installed: GitHub workflow (validate-bash.yml)"
+    echo -e "  ${GREEN}✓${NC} Installed: GitHub workflow (validate-bash.yml)"
 fi
 
 # Install git hooks
+echo -e "${BLUE}ℹ${NC} Installing git hooks..."
 HOOKS_SOURCE="${TEMP_DIR}/opencode-base-collection-main/.githooks"
 if [ -d "$HOOKS_SOURCE" ]; then
     rm -rf .githooks
     cp -r "$HOOKS_SOURCE" .
     chmod +x .githooks/*
-    echo -e "${GREEN}✓${NC} Installed: Git hooks directory"
+    echo -e "  ${GREEN}✓${NC} Installed: Git hooks directory"
 fi
 
 # Install setup-hooks.sh
@@ -109,9 +111,9 @@ if [ -f "$SETUP_HOOKS_SOURCE" ]; then
 fi
 
 echo ""
-echo -e "${GREEN}✓${NC} Installation complete!"
-echo -e "${BLUE}ℹ${NC} Skills installed to: ${SKILLS_DIR}"
-echo -e "${BLUE}ℹ${NC} Commands installed to: ${COMMANDS_DIR}"
+echo -e "${GREEN}ℹ${NC} Installation complete!"
+echo -e "  ${BLUE}✓${NC} Skills installed to: ${SKILLS_DIR}"
+echo -e "  ${BLUE}✓${NC} Commands installed to: ${COMMANDS_DIR}"
 
 # Automatically setup git hooks if in a git repo and setup-hooks.sh exists
 if [ -f "./setup-hooks.sh" ] && [ -d ".git" ]; then
