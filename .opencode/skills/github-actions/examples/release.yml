@@ -1,0 +1,114 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Extract version from tag
+      id: version
+      run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+    
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run tests
+      run: npm test
+    
+    - name: Build
+      run: npm run build
+      env:
+        VERSION: ${{ steps.version.outputs.version }}
+    
+    - name: Create distribution archive
+      run: |
+        mkdir -p release
+        tar -czf release/dist-v${{ steps.version.outputs.version }}.tar.gz dist/
+        zip -r release/dist-v${{ steps.version.outputs.version }}.zip dist/
+    
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-artifacts
+        path: release/
+
+  changelog:
+    runs-on: ubuntu-latest
+    
+    outputs:
+      changelog: ${{ steps.changelog.outputs.changelog }}
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Generate changelog
+      id: changelog
+      run: |
+        PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+        if [ -z "$PREVIOUS_TAG" ]; then
+          CHANGELOG=$(git log --pretty=format:"- %s (%h)" --no-merges)
+        else
+          CHANGELOG=$(git log ${PREVIOUS_TAG}..HEAD --pretty=format:"- %s (%h)" --no-merges)
+        fi
+        echo "changelog<<EOF" >> $GITHUB_OUTPUT
+        echo "$CHANGELOG" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+
+  release:
+    needs: [build, changelog]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: release-artifacts
+        path: release/
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: Release v${{ needs.build.outputs.version }}
+        body: |
+          ## What's Changed
+          
+          ${{ needs.changelog.outputs.changelog }}
+          
+          ## Installation
+          
+          Download the appropriate archive for your platform below.
+          
+          ## Assets
+          
+          - `dist-v${{ needs.build.outputs.version }}.tar.gz` - Tarball archive
+          - `dist-v${{ needs.build.outputs.version }}.zip` - ZIP archive
+        draft: false
+        prerelease: ${{ contains(github.ref, '-beta') || contains(github.ref, '-alpha') || contains(github.ref, '-rc') }}
+        files: |
+          release/dist-v${{ needs.build.outputs.version }}.tar.gz
+          release/dist-v${{ needs.build.outputs.version }}.zip
+        fail_on_unmatched_files: true

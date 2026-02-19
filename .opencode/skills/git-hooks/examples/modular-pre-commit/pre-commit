@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Pre-commit hook orchestrator
+# This script executes all validation hooks in the hooks.d/ directory
+# in numerical order. If any hook fails, the commit is rejected.
+
+set -e
+
+HOOKS_DIR="$(dirname "$0")/hooks.d"
+
+# Check if hooks.d directory exists
+if [ ! -d "$HOOKS_DIR" ]; then
+    echo "⚠️  Warning: hooks.d directory not found at: $HOOKS_DIR"
+    exit 0
+fi
+
+# Find all executable hooks in hooks.d/ and sort them
+HOOKS=$(find "$HOOKS_DIR" -type f -executable | sort)
+
+# Check if there are any hooks to run
+if [ -z "$HOOKS" ]; then
+    echo "⚠️  No executable hooks found in: $HOOKS_DIR"
+    exit 0
+fi
+
+# Track overall success
+ALL_PASSED=0
+
+# Execute each hook in order
+for hook in $HOOKS; do
+    hook_name=$(basename "$hook")
+    
+    # Run the hook
+    if ! "$hook"; then
+        echo ""
+        echo "❌ Hook failed: $hook_name"
+        ALL_PASSED=1
+        break
+    fi
+    
+    echo ""
+done
+
+# Final result
+if [ $ALL_PASSED -eq 1 ]; then
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "❌ COMMIT REJECTED"
+    echo "   Fix the errors above and try again"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    exit 1
+fi
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "✅ ALL VALIDATIONS PASSED"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+exit 0
