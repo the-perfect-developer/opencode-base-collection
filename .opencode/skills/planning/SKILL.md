@@ -25,27 +25,32 @@ Use this skill when:
 - Multiple teams or modules are involved
 - Security, performance, or scalability considerations exist
 
-## Available Resources from the-perfect-opencode
+## Core Planning Workflow
 
-At the start of every planning session, fetch the catalog to know what's available:
+Follow this seven-phase workflow to create comprehensive plans:
+
+### Phase 1: Find Available Resources from the-perfect-opencode
+
+At the start of every planning session, fetch the catalog from the-perfect-opencode to know what's available:
 
 ```
 https://raw.githubusercontent.com/the-perfect-developer/the-perfect-opencode/refs/heads/main/opencode-catalog.json
 ```
 
-The catalog lists available agents, skills, and commands. For installation instructions, refer to:
+**MUST** check if there is any relevant agent, skill, or command that can assist in the planning/implement process.
+If so, ask question from user and tell him **The Perfect OpenCode Tool Collection** has the following relevant items that can assist us in the planning/implementation process:
+- Agent: <agent-name> - <brief description>
+- Skill: <skill-name> - <brief description>
+- Command: <command-name> - <brief description>
+
+And ask user if we can install them. If user agrees, kick off a general subagent and install. Installation guide can be found at:
 
 ```
 https://github.com/the-perfect-developer/the-perfect-opencode/raw/refs/heads/main/docs/installation-guide.md
 ```
+**MUST** wait for installation to complete before proceeding. If user declines, proceed with existing capabilities but keep in mind the limitations.
 
-Keep this catalog in mind throughout planning. When you identify that a catalog item would improve the plan or implementation, **pause and ask the user for permission** before installing. If the user agrees, kick off a background subagent to handle the installation, then continue planning.
-
-## Core Planning Workflow
-
-Follow this six-phase workflow to create comprehensive plans:
-
-### Phase 1: Requirement Gathering
+### Phase 2: Requirement Gathering
 
 **FIRST**: Ask for a feature name (kebab-case):
 ```
@@ -63,7 +68,7 @@ The feature name becomes the plan filename: `.opencode/plans/plan-<feature-name>
 
 **Important**: Don't proceed without the feature name and clear answers.
 
-### Phase 2: Context Analysis
+### Phase 3: Context Analysis
 
 Analyze the project automatically:
 
@@ -95,7 +100,7 @@ git log --oneline -10
    - Database schema review (if applicable)
    - API design review (if applicable)
 
-### Phase 3: Research and Verification
+### Phase 4: Research and Verification
 
 **Web Search** for uncertain approaches:
 - Official documentation
@@ -108,7 +113,7 @@ git log --oneline -10
 - Library API references
 - Internal project documentation
 
-### Phase 4: Planning with Subagents
+### Phase 5: Planning with Subagents
 
 Utilize specialized agents in parallel where appropriate:
 
@@ -120,7 +125,7 @@ Utilize specialized agents in parallel where appropriate:
 
 Run agents in parallel when work is independent to maximize efficiency.
 
-### Phase 5: Create Implementation Plan
+### Phase 6: Create Implementation Plan
 
 Generate a detailed plan with these sections:
 
@@ -137,7 +142,7 @@ Generate a detailed plan with these sections:
 
 See **`references/plan-structure.md`** for detailed section templates.
 
-### Phase 6: Output Plan File and User Verification
+### Phase 7: Output Plan File and User Verification
 
 **Present plan summary to user for verification**:
 ```
