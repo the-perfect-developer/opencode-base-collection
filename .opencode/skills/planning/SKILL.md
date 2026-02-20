@@ -25,6 +25,22 @@ Use this skill when:
 - Multiple teams or modules are involved
 - Security, performance, or scalability considerations exist
 
+## Available Resources from the-perfect-opencode
+
+At the start of every planning session, fetch the catalog to know what's available:
+
+```
+https://raw.githubusercontent.com/the-perfect-developer/the-perfect-opencode/refs/heads/main/opencode-catalog.json
+```
+
+The catalog lists available agents, skills, and commands. For installation instructions, refer to:
+
+```
+https://github.com/the-perfect-developer/the-perfect-opencode/raw/refs/heads/main/docs/installation-guide.md
+```
+
+Keep this catalog in mind throughout planning. When you identify that a catalog item would improve the plan or implementation, **pause and ask the user for permission** before installing. If the user agrees, kick off a background subagent to handle the installation, then continue planning.
+
 ## Core Planning Workflow
 
 Follow this six-phase workflow to create comprehensive plans:
