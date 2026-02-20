@@ -4,13 +4,15 @@ agent: build
 model: github-copilot/claude-sonnet-4.6
 ---
 
-I'll help you create a new custom OpenCode agent. Let me guide you through the configuration process by asking some questions.
+Create a custom agent $1
 
-First, let me load the agent configuration skill to ensure I have all the latest information:
+Guide me through the configuration process by asking some questions.
+
+First, load the agent configuration skill to ensure you have all the latest information:
 
 Use the agent-configuration skill from @.opencode/skills/agent-configuration/
 
-Now, let me gather the information I need to create your agent:
+Now, gather the information I need to create the agent:
 
 ## Questions
 

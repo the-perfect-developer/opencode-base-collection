@@ -4,7 +4,9 @@ agent: build
 model: github-copilot/claude-sonnet-4.6
 ---
 
-Create a new custom OpenCode command by following these steps:
+Create a new custom command $1
+
+Follow these steps:
 
 ## Step 1: Gather Requirements
 

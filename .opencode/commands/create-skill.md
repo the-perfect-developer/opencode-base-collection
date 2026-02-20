@@ -4,7 +4,7 @@ agent: build
 model: github-copilot/claude-sonnet-4.6
 ---
 
-Create a new skill for $1. Refer the details in $2.
+Create a new skill $1
 
 
 ## Best Practices

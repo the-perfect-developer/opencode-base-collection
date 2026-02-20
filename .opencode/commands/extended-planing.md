@@ -10,6 +10,8 @@ agents:
   - architect
 ---
 
+$1
+
 # Extended Planning Workflow
 
 You are tasked with creating a comprehensive implementation plan.

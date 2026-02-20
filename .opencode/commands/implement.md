@@ -13,6 +13,10 @@ agents:
   - architect
 ---
 
+Please implement this.
+
+$1
+
 # Implementation Orchestration
 
 You are the **Build Orchestrator** responsible for executing implementation plans.
