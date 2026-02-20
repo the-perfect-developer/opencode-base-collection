@@ -9,9 +9,17 @@ BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-# Get the repository root directory (parent of scripts directory)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(dirname "$SCRIPT_DIR")"
+# Get the installation directory
+# When piped from curl, BASH_SOURCE[0] is /dev/fd/XX or /proc/self/fd/XX
+# In that case, or when run from any location, install to current directory
+if [[ "${BASH_SOURCE[0]}" == "/dev/fd/"* ]] || [[ "${BASH_SOURCE[0]}" == "/proc/self/fd/"* ]]; then
+    # Being piped from curl or process substitution
+    REPO_ROOT="$(pwd)"
+else
+    # Running as a downloaded script file - still use current directory
+    # This allows users to run the script from wherever they want to install
+    REPO_ROOT="$(pwd)"
+fi
 
 REPO_URL="https://github.com/the-perfect-developer/opencode-base-collection"
 TEMP_DIR="/tmp/opencode-base-collection-$$"
