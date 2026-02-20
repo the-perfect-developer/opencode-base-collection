@@ -29,6 +29,11 @@ declare -a SELECTED_AGENTS
 declare -a SELECTED_SKILLS
 declare -a SELECTED_COMMANDS
 
+# Core items that are always installed (bare minimum requirements)
+CORE_AGENTS=("architect" "backend-engineer" "frontend-engineer" "junior-engineer" "performance-engineer" "security-expert")
+CORE_SKILLS=("agent-configuration" "command-creation" "skill-creation" "planning" "implementation")
+CORE_COMMANDS=("create-agent" "create-command" "create-skill" "extended-planning" "implementation")
+
 # Parse command line arguments
 INSTALL_ALL=true
 for arg in "$@"; do
@@ -98,7 +103,6 @@ if ! command -v curl &> /dev/null || ! command -v tar &> /dev/null; then
 fi
 
 # Download and extract
-echo -e "${BLUE}ℹ${NC} Downloading skills..."
 mkdir -p "$TEMP_DIR"
 trap cleanup EXIT
 
@@ -118,13 +122,22 @@ if [ -d "$AGENTS_SOURCE_DIR" ]; then
         for agent in "${AGENTS_SOURCE_DIR}"/*; do
             if [ -f "$agent" ]; then
                 agent_name=$(basename "$agent" .md)
-                
-                # Check if we should install this agent
-                if [ "$INSTALL_ALL" = true ]; then
+
+                # Check if this is a core agent (only install when INSTALL_ALL)
+                is_core=false
+                for core_agent in "${CORE_AGENTS[@]}"; do
+                    if [ "$agent_name" = "$core_agent" ]; then
+                        is_core=true
+                        break
+                    fi
+                done
+
+                # Install core agents only when no args (INSTALL_ALL=true)
+                if [ "$is_core" = true ] && [ "$INSTALL_ALL" = true ]; then
                     cp "$agent" "${AGENTS_DIR}/"
-                    echo -e "  ${GREEN}✓${NC} Installed agent: ${agent_name}"
-                else
-                    # Check if this agent is in the selected list
+                    echo -e "  ${GREEN}✓${NC} Installed core agent: ${agent_name}"
+                # Check if this agent is in the selected list
+                elif [ "$INSTALL_ALL" = false ]; then
                     for selected in "${SELECTED_AGENTS[@]}"; do
                         if [ "$agent_name" = "$selected" ]; then
                             cp "$agent" "${AGENTS_DIR}/"
@@ -149,14 +162,23 @@ if [ -d "$SOURCE_DIR" ]; then
         for skill in "${SOURCE_DIR}"/*; do
             if [ -d "$skill" ]; then
                 skill_name=$(basename "$skill")
-                
-                # Check if we should install this skill
-                if [ "$INSTALL_ALL" = true ]; then
+
+                # Check if this is a core skill (only install when INSTALL_ALL)
+                is_core=false
+                for core_skill in "${CORE_SKILLS[@]}"; do
+                    if [ "$skill_name" = "$core_skill" ]; then
+                        is_core=true
+                        break
+                    fi
+                done
+
+                # Install core skills only when no args (INSTALL_ALL=true)
+                if [ "$is_core" = true ] && [ "$INSTALL_ALL" = true ]; then
                     rm -rf "${SKILLS_DIR}/${skill_name}"
                     cp -r "$skill" "${SKILLS_DIR}/"
-                    echo -e "  ${GREEN}✓${NC} Installed skill: ${skill_name}"
-                else
-                    # Check if this skill is in the selected list
+                    echo -e "  ${GREEN}✓${NC} Installed core skill: ${skill_name}"
+                # Check if this skill is in the selected list
+                elif [ "$INSTALL_ALL" = false ]; then
                     for selected in "${SELECTED_SKILLS[@]}"; do
                         if [ "$skill_name" = "$selected" ]; then
                             rm -rf "${SKILLS_DIR}/${skill_name}"
@@ -182,13 +204,22 @@ if [ -d "$COMMANDS_SOURCE_DIR" ]; then
         for cmd in "${COMMANDS_SOURCE_DIR}"/*; do
             if [ -f "$cmd" ]; then
                 cmd_name=$(basename "$cmd" .md)
-                
-                # Check if we should install this command
-                if [ "$INSTALL_ALL" = true ]; then
+
+                # Check if this is a core command (only install when INSTALL_ALL)
+                is_core=false
+                for core_cmd in "${CORE_COMMANDS[@]}"; do
+                    if [ "$cmd_name" = "$core_cmd" ]; then
+                        is_core=true
+                        break
+                    fi
+                done
+
+                # Install core commands only when no args (INSTALL_ALL=true)
+                if [ "$is_core" = true ] && [ "$INSTALL_ALL" = true ]; then
                     cp "$cmd" "${COMMANDS_DIR}/"
-                    echo -e "  ${GREEN}✓${NC} Installed command: ${cmd_name}"
-                else
-                    # Check if this command is in the selected list
+                    echo -e "  ${GREEN}✓${NC} Installed core command: ${cmd_name}"
+                # Check if this command is in the selected list
+                elif [ "$INSTALL_ALL" = false ]; then
                     for selected in "${SELECTED_COMMANDS[@]}"; do
                         if [ "$cmd_name" = "$selected" ]; then
                             cp "$cmd" "${COMMANDS_DIR}/"
