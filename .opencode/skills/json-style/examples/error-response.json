@@ -1,0 +1,32 @@
+{
+  "apiVersion": "2.1",
+  "error": {
+    "code": 400,
+    "message": "Validation failed for user registration",
+    "errors": [
+      {
+        "domain": "UserService",
+        "reason": "invalidParameter",
+        "message": "Email address format is invalid",
+        "location": "emailAddress",
+        "locationType": "parameter",
+        "extendedHelp": "https://docs.example.com/errors/invalid-email"
+      },
+      {
+        "domain": "UserService",
+        "reason": "requiredFieldMissing",
+        "message": "First name is required",
+        "location": "firstName",
+        "locationType": "parameter"
+      },
+      {
+        "domain": "UserService",
+        "reason": "passwordTooWeak",
+        "message": "Password must be at least 8 characters and contain uppercase, lowercase, and numbers",
+        "location": "password",
+        "locationType": "parameter",
+        "extendedHelp": "https://docs.example.com/security/password-requirements"
+      }
+    ]
+  }
+}

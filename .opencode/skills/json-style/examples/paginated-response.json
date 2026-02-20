@@ -1,0 +1,116 @@
+{
+  "apiVersion": "2.1",
+  "id": "search-response-67890",
+  "data": {
+    "kind": "searchResults",
+    "query": "chicago style pizza",
+    "searchTime": "0.15",
+    "updated": "2024-02-19T10:35:00.000Z",
+    
+    "currentItemCount": 10,
+    "itemsPerPage": 10,
+    "startIndex": 11,
+    "totalItems": 2700000,
+    
+    "pageIndex": 2,
+    "totalPages": 270000,
+    
+    "nextLink": "https://api.example.com/search?q=chicago+style+pizza&startIndex=21&count=10",
+    "previousLink": "https://api.example.com/search?q=chicago+style+pizza&startIndex=1&count=10",
+    "selfLink": "https://api.example.com/search?q=chicago+style+pizza&startIndex=11&count=10",
+    "pagingLinkTemplate": "https://api.example.com/search?q=chicago+style+pizza&startIndex={index}&count=10",
+    
+    "items": [
+      {
+        "kind": "searchResult",
+        "id": "result-11",
+        "title": "Chicago Style Pizza Recipe - Deep Dish Perfection",
+        "url": "https://recipes.example.com/chicago-pizza",
+        "snippet": "The authentic Chicago style pizza recipe with buttery crust and layers of cheese...",
+        "thumbnail": "https://images.example.com/thumbnails/chicago-pizza.jpg",
+        "rating": 4.8,
+        "reviewCount": 1523
+      },
+      {
+        "kind": "searchResult",
+        "id": "result-12",
+        "title": "History of Chicago Pizza - From 1943 to Today",
+        "url": "https://history.example.com/chicago-pizza",
+        "snippet": "Learn about the origins of Chicago-style deep dish pizza at Pizzeria Uno...",
+        "thumbnail": "https://images.example.com/thumbnails/pizza-history.jpg",
+        "publishedDate": "2023-06-15T00:00:00.000Z"
+      },
+      {
+        "kind": "searchResult",
+        "id": "result-13",
+        "title": "Top 10 Chicago Pizza Restaurants",
+        "url": "https://food.example.com/chicago-best-pizza",
+        "snippet": "Discover the best places to get authentic Chicago style pizza in the Windy City...",
+        "thumbnail": "https://images.example.com/thumbnails/restaurants.jpg",
+        "rating": 4.9,
+        "reviewCount": 892,
+        "tags": ["restaurant", "chicago", "guide"]
+      },
+      {
+        "kind": "searchResult",
+        "id": "result-14",
+        "title": "Chicago vs New York Style Pizza: The Great Debate",
+        "url": "https://blog.example.com/pizza-debate",
+        "snippet": "Compare and contrast the two most famous American pizza styles...",
+        "publishedDate": "2024-01-20T00:00:00.000Z"
+      },
+      {
+        "kind": "searchResult",
+        "id": "result-15",
+        "title": "How to Make Chicago Pizza at Home - Video Tutorial",
+        "url": "https://videos.example.com/chicago-pizza-tutorial",
+        "snippet": "Step-by-step video guide to making restaurant-quality Chicago pizza...",
+        "thumbnail": "https://images.example.com/thumbnails/video-thumb.jpg",
+        "duration": "PT15M30S",
+        "viewCount": 45678
+      },
+      {
+        "kind": "searchResult",
+        "id": "result-16",
+        "title": "Chicago Pizza Nutrition Facts",
+        "url": "https://nutrition.example.com/chicago-pizza",
+        "snippet": "Nutritional information and calorie counts for Chicago style deep dish pizza...",
+        "tags": ["nutrition", "health", "calories"]
+      },
+      {
+        "kind": "searchResult",
+        "id": "result-17",
+        "title": "Best Chicago Pizza Delivery Services",
+        "url": "https://delivery.example.com/chicago-pizza",
+        "snippet": "Get authentic Chicago pizza delivered to your door nationwide...",
+        "rating": 4.5,
+        "reviewCount": 234
+      },
+      {
+        "kind": "searchResult",
+        "id": "result-18",
+        "title": "Gluten-Free Chicago Style Pizza Recipe",
+        "url": "https://recipes.example.com/gluten-free-chicago",
+        "snippet": "Enjoy Chicago deep dish pizza with this gluten-free crust recipe...",
+        "tags": ["gluten-free", "recipe", "dietary"]
+      },
+      {
+        "kind": "searchResult",
+        "id": "result-19",
+        "title": "Chicago Pizza Festival 2024",
+        "url": "https://events.example.com/pizza-festival",
+        "snippet": "Annual celebration of Chicago's famous deep dish pizza with tastings...",
+        "eventDate": "2024-07-15T00:00:00.000Z",
+        "location": "+41.8781-087.6298"
+      },
+      {
+        "kind": "searchResult",
+        "id": "result-20",
+        "title": "Chicago Pizza Trivia and Fun Facts",
+        "url": "https://trivia.example.com/chicago-pizza",
+        "snippet": "Interesting facts about Chicago style pizza you probably didn't know...",
+        "tags": ["trivia", "fun-facts", "food-history"]
+      }
+    ]
+  }
+}

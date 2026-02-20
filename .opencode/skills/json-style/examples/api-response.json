@@ -1,0 +1,36 @@
+{
+  "apiVersion": "2.1",
+  "data": {
+    "kind": "user",
+    "id": "user-12345",
+    "etag": "W/\"a7b3c9d2e5f1\"",
+    "updated": "2024-02-19T10:30:00.000Z",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "emailAddress": "jane.doe@example.com",
+    "isVerified": true,
+    "accountBalance": 1500.75,
+    "preferences": {
+      "theme": "dark",
+      "language": "en-US",
+      "notificationsEnabled": true,
+      "emailFrequency": "DAILY"
+    },
+    "address": {
+      "line1": "123 Main Street",
+      "line2": "Apt 4B",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94102",
+      "country": "USA"
+    },
+    "tags": ["premium", "verified", "early-adopter"],
+    "metadata": {
+      "signupSource": "web",
+      "referralCode": "FRIEND2024",
+      "lastLogin": "2024-02-19T09:15:00.000Z"
+    },
+    "selfLink": "https://api.example.com/users/12345",
+    "editLink": "https://api.example.com/users/12345/edit"
+  }
+}
