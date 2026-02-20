@@ -1,6 +1,6 @@
 ---
 description: Discover and install perfect agents/skills/commands for your project
-agent: plan
+agent: build
 model: github-copilot/claude-sonnet-4.5
 ---
 
