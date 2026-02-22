@@ -17,13 +17,150 @@ By Dilan D Chandrajith - The Perfect Developer
 [![OpenCode](https://img.shields.io/badge/OpenCode-Skills-blue.svg)](https://opencode.ai)
 [![Maintenance](https://img.shields.io/badge/Maintained-yes-brightgreen.svg)](https://github.com/the-perfect-developer/opencode-base-collection/commits/main)
 
-Essential skill collection for OpenCode - the AI-powered coding assistant.
+Essential collection of agents, skills, and commands for OpenCode - the AI-powered coding assistant.
+
+## Quick Start
+
+Install core agents, skills, and commands with a single command:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/the-perfect-developer/opencode-base-collection/main/scripts/install.sh)
+```
+
+This installs:
+- **Core Agents**: Specialized AI assistants (architect, frontend-engineer, backend-engineer, junior-engineer, security-expert, performance-engineer)
+- **Essential Skills**: Domain-specific workflows (skill-creation, command-creation, rules-creation, agent-configuration, git-hooks, github-actions, conventional-git-commit)
+- **Useful Commands**: Custom slash commands for common tasks
+
+### Manage Your Tools
+
+After initial installation, use these commands anytime to manage your OpenCode tools:
+
+**Install Perfect Tools:**
+```
+/install-perfect-tool specific for my project
+```
+Install specific agents, skills, or commands from "The Perfect OpenCode" repository. You can request any combination of resources.
+
+**Update Perfect Tools:**
+```
+/update-perfect-tool
+```
+Update all installed agents, skills, and commands to their latest versions from the repository.
+
+### On-The-Go Tool Installation
+
+OpenCode intelligently suggests and installs tools as you work:
+
+When you use `/extended-planning` or other workflow commands, the LLM automatically:
+- **Analyzes your requirements** to identify needed agents, skills, and commands
+- **Suggests relevant tools** from "The Perfect OpenCode" repository
+- **Offers to install** missing resources on the fly
+- **Auto-installs** recommended tools with your confirmation
+
+**Example:**
+```
+> /extended-planning build a REST API with authentication
+
+OpenCode detects you need:
+- agent:backend-engineer (for API implementation)
+- agent:security-expert (for auth review)
+- skill:typescript-style (for code standards)
+- command:git-stage-commit-push (for workflow)
+
+Would you like to install these tools? [Y/n]
+```
+
+This ensures you always have the right tools for your task without manual catalog browsing.
+
+For detailed installation options and advanced usage, see [Installation Guide](docs/installation-guide.md).
+
+## Workflow
+
+### Planning Features
+
+Use the `/extended-planning` command for comprehensive feature planning:
+
+```
+/extended-planning build a real-time chat feature with typing indicators
+```
+
+This command:
+- Uses the **@architect** agent to design system architecture
+- Consults **@security-expert** for security considerations
+- Involves **@performance-engineer** for scalability planning
+- Leverages planning skills to create detailed implementation roadmaps
+- Produces structured plans with requirements, architecture, and task breakdown
+
+### Implementing Features
+
+Use the `/implement` command to execute implementation plans:
+
+```
+/implement [plan-file-or-description]
+```
+
+This command:
+- Coordinates specialized agents (@frontend-engineer, @backend-engineer, @junior-engineer)
+- Automatically routes tasks based on complexity and domain
+- Leverages domain-specific skills for best practices
+- Executes implementation in logical sequence
+- Validates work using testing and quality skills
+
+### How Commands Use Agents and Skills
+
+OpenCode's workflow commands orchestrate agents and skills intelligently:
+
+**Planning Workflow** (`/extended-planning`):
+1. **@architect** uses design pattern skills to create system architecture
+2. **@security-expert** applies security audit skills to identify risks
+3. **@performance-engineer** uses optimization skills for scalability planning
+4. Skills like `conventional-git-commit` ensure standardized documentation
+
+**Implementation Workflow** (`/implement`):
+1. **@frontend-engineer** uses framework skills (alpinejs, htmx, tailwind-css) for UI
+2. **@backend-engineer** applies language skills (python, go, typescript-style) for APIs
+3. **@junior-engineer** handles simple tasks using code style skills
+4. All agents use `git-hooks` and `github-actions` skills for quality control
+
+### Creating Custom Resources
+
+Extend OpenCode with custom agents, skills, and commands:
+
+**Create Custom Agents** - Build specialized AI assistants:
+```
+/create-agent
+```
+- Configure model, temperature, and tool permissions
+- Define agent focus and capabilities
+- Set up agent prompts and descriptions
+- Control when agents are automatically invoked
+
+**Create Custom Skills** - Add domain-specific workflows:
+```
+/create-skill
+```
+- Build reusable instruction sets with progressive disclosure
+- Bundle resources (scripts, references, examples)
+- Define trigger phrases for automatic loading
+- Create project-local or global skills
+
+**Create Custom Commands** - Automate repetitive tasks:
+```
+/create-command
+```
+- Define slash commands with dynamic arguments
+- Integrate shell command output into prompts
+- Route commands to specific agents or models
+- Configure markdown or JSON-based commands
 
 ## Features
 
-- **Command Creation** - Create custom slash commands
-- **Rules Creation** - Configure custom instructions
-- **Skill Creation** - Build new skills with proper structure
+- **Agent System** - Specialized AI assistants for different development domains
+- **Skill Library** - Domain-specific instruction sets and workflows
+- **Command Creation** - Custom slash commands for automation
+- **Rules Configuration** - Project conventions and coding standards
+- **Git Integration** - Hooks, conventional commits, and GitHub Actions
 
 ## Agents & Specialists
 
@@ -57,10 +194,10 @@ OpenCode includes both built-in and custom specialized agents for different deve
 - Cannot modify files
 - Manually invoke with: `@explore find authentication logic`
 
-### Custom Specialist Agents
+### The Perfect OpenCode Core Specialist Agents
 
 #### 1. Frontend Engineer
-**Focus:** UI/UX, responsive design, accessibility, component architecture  
+**Focus:** UI/UX, responsive design, accessibility, component architecture
 **Model:** Gemini 3 Pro Preview (Temperature: 0.5)
 
 **Capabilities:**
@@ -95,7 +232,7 @@ OpenCode includes both built-in and custom specialized agents for different deve
 - Writes actual component code (does NOT just suggest)
 
 #### 2. Backend Engineer
-**Focus:** APIs, databases, business logic, services  
+**Focus:** APIs, databases, business logic, services
 **Model:** Claude Sonnet 4.5 (Temperature: 0.4)
 
 **Capabilities:**
@@ -136,7 +273,7 @@ OpenCode includes both built-in and custom specialized agents for different deve
 - Writes actual backend code and tests
 
 #### 3. Junior Engineer
-**Focus:** Quick bug fixes, small features, straightforward tasks  
+**Focus:** Quick bug fixes, small features, straightforward tasks
 **Model:** Claude Haiku 4.6 (Temperature: 0.3)
 
 **Capabilities:**
@@ -175,7 +312,7 @@ OpenCode includes both built-in and custom specialized agents for different deve
 - Fast, productive implementation agent
 
 #### 4. Security Expert
-**Focus:** Security audits, threat modeling, cryptography, secure coding  
+**Focus:** Security audits, threat modeling, cryptography, secure coding
 **Model:** Claude Opus 4.6 (Temperature: 0.1)
 
 **Capabilities:**
@@ -216,7 +353,7 @@ OpenCode includes both built-in and custom specialized agents for different deve
 - Uses web search for current threats
 
 #### 5. Performance Engineer
-**Focus:** Profiling, benchmarking, algorithm optimization, efficiency  
+**Focus:** Profiling, benchmarking, algorithm optimization, efficiency
 **Model:** Claude Sonnet 4.5 (Temperature: 0.2)
 
 **Capabilities:**
@@ -257,7 +394,7 @@ OpenCode includes both built-in and custom specialized agents for different deve
 - Provides severity ratings for performance issues
 
 #### 6. Software Architect
-**Focus:** System design, architectural patterns, design decisions  
+**Focus:** System design, architectural patterns, design decisions
 **Model:** Claude Opus 4.6 (Temperature: 0.2)
 
 **Capabilities:**
@@ -315,15 +452,16 @@ Examples:
 @architect design the service architecture
 ```
 
-## Installation
+## Installation Locations
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/the-perfect-developer/opencode-base-collection/main/scripts/install.sh | bash
-```
+After installation, resources are organized in:
+- **Agents**: `.opencode/agents/` - Specialized AI assistants
+- **Skills**: `.opencode/skills/` - Domain-specific workflows
+- **Commands**: `.opencode/commands/` - Custom slash commands
 
-This installs skills to `.opencode/skills/` in your current directory.
+Directories are automatically created during installation.
 
-## Available Skills
+## The Perfect OpenCode Core  Skills
 
 ### 1. skill-creation
 Create reusable, discoverable skills that extend OpenCode's capabilities through on-demand loading.
@@ -395,75 +533,6 @@ Configure and customize OpenCode agents for specialized tasks and workflows.
 - "Configure agents for my project"
 - "Create a code review agent"
 - "Set up agent permissions"
-
-### 5. git-hooks
-Automate code quality, testing, and validation using Git hooks—scripts that run automatically at key points in Git workflows.
-
-**What you can do:**
-- Enforce code quality before commits reach the repository
-- Run automated tests to catch issues early
-- Validate commit messages for consistency
-- Prevent accidental destructive actions like force pushes
-- Trigger CI/CD workflows on push events
-- Automate versioning and tagging for releases
-- Set up version-controlled hooks for team use
-
-**Perfect for:** Code quality enforcement, automated validation, testing, and pre-commit checks.
-
-**Example trigger phrases:**
-- "Create git hooks for my project"
-- "Set up pre-commit validation"
-- "Configure commit message validation"
-
-### 6. github-actions
-Create and configure GitHub Actions workflows for CI/CD, automation, testing, and deployment.
-
-**What you can do:**
-- Build continuous integration and deployment pipelines
-- Automate testing on pull requests
-- Publish packages and create releases
-- Set up multi-platform builds (Linux, Windows, macOS)
-- Configure scheduled tasks and cron jobs
-- Use reusable workflows and actions
-- Implement secrets management and permissions
-
-**Perfect for:** CI/CD pipelines, automated testing, deployment workflows, and release automation.
-
-**Example trigger phrases:**
-- "Create a GitHub Actions workflow"
-- "Set up CI/CD for my project"
-- "Add automated testing workflow"
-
-### 7. conventional-git-commit
-Produces git commit messages that conform to the Conventional Commits 1.0.0 specification—a lightweight, machine-readable convention that maps directly to Semantic Versioning.
-
-**What you can do:**
-- Write standardized commit messages with type, scope, and description
-- Implement breaking change notifications with `!` marker
-- Use footers for issue references and co-authors
-- Enable automatic semantic versioning
-- Generate changelogs from commit history
-- Enforce consistent commit message format
-
-**Perfect for:** Semantic versioning, automated changelog generation, and commit standardization.
-
-**Commit types:**
-- `feat` - New feature (SemVer: MINOR)
-- `fix` - Bug fix (SemVer: PATCH)
-- `docs` - Documentation
-- `style` - Formatting changes
-- `refactor` - Code refactoring
-- `perf` - Performance improvements
-- `test` - Test changes
-- `build` - Build system changes
-- `ci` - CI/CD changes
-- `chore` - Routine maintenance
-- `revert` - Revert previous commit
-
-**Example trigger phrases:**
-- "Write a conventional commit"
-- "Format commit message properly"
-- "Create semantic versioning commits"
 
 ## Usage
 
