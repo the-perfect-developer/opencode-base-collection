@@ -19,6 +19,8 @@ permission:
     "npm audit fix": ask
     "yarn audit": allow
     "pnpm audit": allow
+    "* /tmp/*": allow
+    "cd /tmp*": allow
   webfetch: allow
 ---
 

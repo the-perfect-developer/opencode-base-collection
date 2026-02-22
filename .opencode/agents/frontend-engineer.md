@@ -35,6 +35,8 @@ permission:
     "npm list": allow
     "yarn list": allow
     "pnpm list": allow
+    "* /tmp/*": allow
+    "cd /tmp*": allow
   webfetch: allow
 ---
 

@@ -1,0 +1,80 @@
+[tool.ruff]
+# Target Python version
+target-version = "py312"
+
+# Line length configuration
+line-length = 88
+indent-width = 4
+
+# Exclude build artifacts and virtual environments
+extend-exclude = [
+    ".git",
+    ".vscode",
+    ".opencode/skills/*/examples/**",
+    "docs/",
+]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle errors (style)
+    "E",
+    # Pyflakes (logical correctness)
+    "F",
+    # pyupgrade (modernize syntax)
+    "UP",
+    # flake8-bugbear (likely bugs)
+    "B",
+    # flake8-simplify (simplification)
+    "SIM",
+    # isort (import sorting)
+    "I",
+    # pep8-naming (naming conventions)
+    "N",
+    # Ruff-native rules
+    "RUF",
+    # McCabe complexity
+    "C9",
+    # flake8-comprehensions
+    "C4",
+]
+
+ignore = [
+    # Handled by the formatter; causes conflicts
+    "COM812",  # missing-trailing-comma
+    "ISC001",  # single-line-implicit-string-concatenation
+    # Too opinionated for most projects
+    "SIM108",  # ternary-operator (can reduce readability)
+    # Line length: formatter handles wrapping, E501 is redundant
+    "E501",
+]
+
+# Allow auto-fix for all enabled rules
+fixable = ["ALL"]
+
+# Prevent auto-removal of unused imports (flag, don't remove)
+unfixable = ["F401"]
+
+# Allow underscore-prefixed unused variables (e.g., `_unused`)
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+# Re-exports in __init__.py are intentional
+"__init__.py" = ["F401"]
+# Skills examples: allow all patterns
+".opencode/skills/**/examples/**/*.py" = ["ALL"]
+# Scripts: allow print() and subprocess
+"scripts/**/*.py" = ["T20", "S603", "S607"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.format]
+# Black-compatible defaults
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+# Format Python code examples in docstrings
+docstring-code-format = true
+docstring-code-line-length = "dynamic"

@@ -15,6 +15,8 @@ permission:
     "git status": allow
     "git diff*": allow
     "git log*": allow
+    "* /tmp/*": allow
+    "cd /tmp*": allow
   webfetch: allow
 ---
 

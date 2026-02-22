@@ -21,6 +21,8 @@ permission:
     "python -m cProfile*": allow
     "go test -bench*": allow
     "cargo bench": allow
+    "* /tmp/*": allow
+    "cd /tmp*": allow
   webfetch: allow
 ---
 
