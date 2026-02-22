@@ -32,7 +32,7 @@ declare -a SELECTED_COMMANDS
 # Core items that are always installed (bare minimum requirements)
 CORE_AGENTS=("architect" "backend-engineer" "frontend-engineer" "junior-engineer" "performance-engineer" "security-expert")
 CORE_SKILLS=("agent-configuration" "command-creation" "skill-creation" "planning" "implementation")
-CORE_COMMANDS=("create-agent" "create-command" "create-skill" "extended-planning" "implementation" "install-perfect-tools" "update-perfect-tools")
+CORE_COMMANDS=("create-agent" "create-command" "create-skill" "extended-planning" "implement" "install-perfect-tools" "update-perfect-tools")
 
 # Parse command line arguments
 INSTALL_ALL=true

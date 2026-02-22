@@ -20,7 +20,69 @@ View staged changes (if any):
 View recent commit history for style reference:
 !`git log -5 --oneline`
 
-## Step 2: Present Summary to User
+## Step 2: Pre-Stage Safety Checklist
+
+Before staging anything, run the following checks and present the results using ✅ (pass) or ❌ (FAIL) for each item. If ANY item fails, warn the user prominently and ask whether to continue.
+
+Run these commands to gather data:
+!`git diff --name-only && git ls-files --others --exclude-standard`
+!`git diff --name-only && git ls-files --others --exclude-standard | xargs -I{} find {} -maxdepth 0 -size +1M 2>/dev/null`
+!`grep -rn "PRIVATE KEY\|-----BEGIN\|password\s*=\|secret\s*=\|api_key\s*=\|apikey\s*=\|token\s*=\|AWS_SECRET\|AWS_ACCESS" --include="*.env*" --include="*.json" --include="*.yaml" --include="*.yml" --include="*.toml" --include="*.ini" --include="*.conf" --include="*.config" . 2>/dev/null | grep -v ".git" | head -20`
+!`git diff | grep -n "<<<<<<\|=======\|>>>>>>>" | head -20`
+!`git ls-files --others --exclude-standard | grep -E "\.env$|\.env\.|credentials|secrets|\.pem$|\.key$|\.p12$|\.pfx$|id_rsa|id_dsa|id_ecdsa" | head -20`
+!`git check-ignore -v $(git ls-files --others --exclude-standard) 2>/dev/null | head -20`
+!`git branch --show-current`
+
+Present the checklist in this exact format:
+
+```
+## Pre-Stage Safety Checklist
+
+| # | Check | Status | Detail |
+|---|-------|--------|--------|
+| 1 | No secrets or credentials exposed | ✅ / ❌ | [files or "None found"] |
+| 2 | No files larger than 1 MB | ✅ / ❌ | [files or "None found"] |
+| 3 | No .env or config files with sensitive data | ✅ / ❌ | [files or "None found"] |
+| 4 | No merge conflict markers (<<<<<<, =======, >>>>>>>) | ✅ / ❌ | [files or "None found"] |
+| 5 | No binary or generated files that shouldn't be tracked | ✅ / ❌ | [files or "None found"] |
+| 6 | No files that should be in .gitignore | ✅ / ❌ | [files or "None found"] |
+| 7 | No private key files (.pem, .key, id_rsa, etc.) | ✅ / ❌ | [files or "None found"] |
+| 8 | Not staging directly to main/master branch | ✅ / ❌ | [branch name] |
+| 9 | No debug code left in (console.log, debugger, etc.) | ✅ / ❌ | [files or "None found"] |
+| 10 | No TODO/FIXME comments that block this change | ✅ / ❌ | [files or "None found"] |
+```
+
+After the table, **always** display a full result summary in this exact format:
+
+```
+## Safety Check Results
+
+✅ Passed ([n]/10):
+- No secrets or credentials exposed
+- No files larger than 1 MB
+- [every passing check listed by name]
+
+❌ Failed ([n]/10):
+- No .env or config files with sensitive data → Found: .env.local, config/secrets.yml
+- [every failing check listed by name with what was found]
+```
+
+**If ALL checks passed** (0 failures), follow the result summary with:
+
+```
+All 10 safety checks passed. Safe to proceed with staging.
+```
+
+**If any checks failed**, follow the result summary with:
+
+```
+⚠️  WARNING: [n] of 10 safety check(s) failed before staging.
+Proceeding may expose sensitive data or corrupt the repository.
+
+Do you want to continue anyway?
+```
+
+## Step 3: Present Summary to User
 
 Before committing, you MUST present a summary to the user in this exact format:
 
@@ -58,7 +120,7 @@ Then:
 2. **Provide the formatted summary** to the user
 3. **Ask for confirmation** before proceeding with the commit
 
-## Step 3: Commit with Conventional Commits
+## Step 4: Commit with Conventional Commits
 
 **IMPORTANT**: You MUST follow the Conventional Commits 1.0.0 specification.
 
@@ -72,7 +134,7 @@ Create a commit message that:
 - Includes a body if the changes need explanation
 - Uses `BREAKING CHANGE:` footer or `!` if there are breaking changes
 
-## Step 4: Stage All, Commit, and Push
+## Step 5: Stage All, Commit, and Push
 
 Only after receiving user confirmation:
 
@@ -95,11 +157,12 @@ Only after receiving user confirmation:
 
 ## Example Workflow
 
-1. Show changes summary ✓
-2. Show proposed commit message ✓
-3. Ask: "Is it okay to proceed with this commit?" ✓
-4. Wait for user confirmation ✓
-5. Stage all files: `git add .`
-6. Commit: `git commit -m "feat(commands): add new-command for automated deployment"`
-7. Push: `git push`
-8. Confirm: "✓ Changes staged, committed and pushed successfully"
+1. Run pre-stage safety checklist ✓
+2. Show changes summary ✓
+3. Show proposed commit message ✓
+4. Ask: "Is it okay to proceed with this commit?" ✓
+5. Wait for user confirmation ✓
+6. Stage all files: `git add .`
+7. Commit: `git commit -m "feat(commands): add new-command for automated deployment"`
+8. Push: `git push`
+9. Confirm: "✓ Changes staged, committed and pushed successfully"
