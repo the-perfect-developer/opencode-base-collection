@@ -38,11 +38,13 @@ The Perfect OpenCode comes with a comprehensive collection of skills covering pr
 | Name | Description |
 |------|-------------|
 | `agent-configuration` | This skill should be used when the user asks to configure agents, create a custom agent, set up agent permissions, customize agent behavior, switch agents, or needs guidance on OpenCode agent system. |
+| `alembic` | This skill should be used when the user asks to set up Alembic migrations, create a database migration, run alembic upgrade, configure alembic autogenerate, or needs guidance on SQLAlchemy schema versioning and migration best practices. |
 | `alpinejs` | This skill should be used when the user asks to add Alpine.js, create Alpine component, use Alpine directives, build interactive UI with Alpine, or needs guidance on Alpine.js development patterns and best practices. |
 | `bash-shell` | This skill should be used when the user asks to write a bash script, follow shell style guide, format shell scripts, create shell utilities, or needs guidance on Bash/shell scripting best practices and conventions. |
 | `command-creation` | This skill should be used when the user asks to create a command, add a custom command, make a slash command, create /command, or needs guidance on creating custom commands in OpenCode. |
 | `conventional-git-commit` | This skill MUST be loaded on every git commit without exception. It should also be used when the user asks to write a conventional commit, format a commit message, follow conventional commits spec, create a semantic commit, make a commit, commit changes, or git commit. Every commit message produced in this project MUST conform to this specification. |
 | `css` | Apply Google CSS style guide conventions to CSS code |
+| `eslint` | This skill should be used when the user asks to set up ESLint, configure ESLint rules, fix ESLint errors, migrate to flat config, or needs guidance on JavaScript/TypeScript linting best practices. |
 | `git-hooks` | This skill should be used when the user asks to create git hooks, set up pre-commit hooks, configure git hooks, add commit validation, implement pre-push hooks, or needs guidance on Git hooks implementation, validation scripts, or hook best practices. |
 | `github-actions` | This skill should be used when the user asks to create a GitHub Actions workflow, set up CI/CD, configure GitHub Actions, add automated testing, deploy with GitHub Actions, or needs guidance on GitHub Actions workflows, syntax, or automation. |
 | `go` | Apply Go style guide conventions to code |
@@ -55,12 +57,14 @@ The Perfect OpenCode comes with a comprehensive collection of skills covering pr
 | `nextjs-react` | This skill should be used when the user asks to write a Next.js app, follow React best practices, optimize a Next.js application, build with the App Router, or needs guidance on modern React and Next.js patterns for 2025. |
 | `nuxt` | This skill should be used when the user asks to build a Nuxt app, optimize Nuxt performance, configure Nuxt rendering, follow Nuxt best practices, or needs guidance on Nuxt 4 development patterns, hybrid rendering, or Core Web Vitals optimization. |
 | `planning` | This skill should be used when the user asks to create an implementation plan, plan a feature, create detailed plan, analyze requirements, or needs comprehensive project planning with requirements gathering and architectural analysis. |
+| `pydantic` | This skill should be used when the user asks to validate data with pydantic, create a pydantic model, use pydantic best practices, write pydantic validators, or needs guidance on pydantic v2 patterns, serialization, configuration, or performance optimization. |
 | `python-flet` | This skill should be used when the user asks to build a Flet app, create a Python GUI, use Flet framework, write a Flet control, or needs guidance on cross-platform Python UI development with Flet. |
 | `python-ruff` | This skill should be used when the user asks to configure ruff, set up ruff linting, use ruff formatter, replace flake8 with ruff, or needs guidance on Python code quality with Ruff linting and formatting best practices. |
 | `python-uv` | This skill should be used when the user asks to set up a Python project with uv, manage dependencies with uv, create a uv project, use uv for Python package management, or needs guidance on uv workflows, pyproject.toml configuration, lockfiles, and development dependency groups. |
 | `python` | Apply Python style guide conventions to code |
 | `rules-creation` | This skill should be used when the user asks to create rules, add custom instructions, set up AGENTS.md, configure project rules, add global rules, or needs guidance on customizing OpenCode behavior with custom instructions. |
 | `skill-creation` | This skill should be used when the user asks to create a skill, write a new skill, add a skill, SKILL.md format, skill frontmatter, or needs guidance on skill structure, progressive disclosure, or OpenCode skill development. |
+| `sqlmodel` | This skill should be used when the user asks to use SQLModel, define SQLModel models, connect SQLModel with FastAPI, set up a database with SQLModel, or needs guidance on SQLModel best practices, relationships, or session management. |
 | `tailwind-css` | This skill should be used when the user asks to use Tailwind CSS, install Tailwind, style with Tailwind, add Tailwind utilities, create responsive design with Tailwind, or needs guidance on Tailwind CSS utility-first styling and configuration. |
 | `turso-libsql` | This skill should be used when the user asks to connect to Turso, use libSQL, set up a Turso database, query Turso with TypeScript, or needs guidance on Turso Cloud, embedded replicas, or vector search with libSQL. |
 | `typescript-style` | This skill should be used when the user asks to write TypeScript code, format TypeScript, follow TypeScript style guide, TypeScript best practices, or needs guidance on Google's TypeScript coding conventions. |
@@ -110,6 +114,6 @@ The Perfect OpenCode includes several built-in commands that streamline common d
 
 ---
 
-**Generated on:** 2026-02-22 14:09:09 UTC
+**Generated on:** 2026-02-22 17:36:48 UTC
 
 **Repository:** [The Perfect OpenCode](https://github.com/the-perfect-developer/the-perfect-opencode)
