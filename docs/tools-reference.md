@@ -41,6 +41,7 @@ The Perfect OpenCode comes with a comprehensive collection of skills covering pr
 | `alembic` | This skill should be used when the user asks to set up Alembic migrations, create a database migration, run alembic upgrade, configure alembic autogenerate, or needs guidance on SQLAlchemy schema versioning and migration best practices. |
 | `alpinejs` | This skill should be used when the user asks to add Alpine.js, create Alpine component, use Alpine directives, build interactive UI with Alpine, or needs guidance on Alpine.js development patterns and best practices. |
 | `bash-shell` | This skill should be used when the user asks to write a bash script, follow shell style guide, format shell scripts, create shell utilities, or needs guidance on Bash/shell scripting best practices and conventions. |
+| `capacitor` | This skill should be used when the user asks to build a Capacitor app, add Capacitor to a web project, use Capacitor plugins, configure Capacitor for iOS or Android, or needs guidance on Capacitor best practices, security, storage, deep links, or the development workflow. |
 | `command-creation` | This skill should be used when the user asks to create a command, add a custom command, make a slash command, create /command, or needs guidance on creating custom commands in OpenCode. |
 | `conventional-git-commit` | This skill MUST be loaded on every git commit without exception. It should also be used when the user asks to write a conventional commit, format a commit message, follow conventional commits spec, create a semantic commit, make a commit, commit changes, or git commit. Every commit message produced in this project MUST conform to this specification. |
 | `css` | Apply Google CSS style guide conventions to CSS code |
@@ -114,6 +115,6 @@ The Perfect OpenCode includes several built-in commands that streamline common d
 
 ---
 
-**Generated on:** 2026-02-22 17:36:48 UTC
+**Generated on:** 2026-02-23 18:15:29 UTC
 
 **Repository:** [The Perfect OpenCode](https://github.com/the-perfect-developer/the-perfect-opencode)
