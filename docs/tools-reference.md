@@ -56,12 +56,17 @@ The Perfect OpenCode comes with a comprehensive collection of skills covering pr
 | `json-style` | This skill should be used when the user asks to format JSON, design JSON API, write JSON response, structure JSON data, or needs guidance on JSON naming conventions and best practices based on Google's JSON Style Guide. |
 | `markdown` | This skill should be used when the user asks to format markdown, write markdown documentation, follow markdown style guide, apply markdown conventions, or needs guidance on markdown best practices. |
 | `nextjs-react` | This skill should be used when the user asks to write a Next.js app, follow React best practices, optimize a Next.js application, build with the App Router, or needs guidance on modern React and Next.js patterns for 2025. |
+| `numpy` | This skill should be used when the user asks to use NumPy, write NumPy code, optimize NumPy arrays, vectorize with NumPy, or needs guidance on NumPy best practices, array operations, broadcasting, memory management, or scientific computing with Python. |
 | `nuxt` | This skill should be used when the user asks to build a Nuxt app, optimize Nuxt performance, configure Nuxt rendering, follow Nuxt best practices, or needs guidance on Nuxt 4 development patterns, hybrid rendering, or Core Web Vitals optimization. |
+| `pandas` | This skill should be used when the user asks to use pandas, analyze data with pandas, work with DataFrames, clean data with pandas, or needs guidance on pandas best practices, data manipulation, performance optimization, or common pandas patterns. |
+| `pandera` | This skill should be used when the user asks to validate a DataFrame with pandera, write a pandera schema, use pandera DataFrameModel, add data validation to a pipeline, or needs guidance on pandera best practices for data quality. |
 | `planning` | This skill should be used when the user asks to create an implementation plan, plan a feature, create detailed plan, analyze requirements, or needs comprehensive project planning with requirements gathering and architectural analysis. |
 | `pydantic` | This skill should be used when the user asks to validate data with pydantic, create a pydantic model, use pydantic best practices, write pydantic validators, or needs guidance on pydantic v2 patterns, serialization, configuration, or performance optimization. |
 | `pytest` | This skill should be used when the user asks to write pytest tests, set up pytest best practices, configure pytest, write fixtures, or needs guidance on pytest testing patterns and project structure. |
+| `python-bandit` | This skill should be used when the user asks to scan Python code for security issues, set up Bandit, configure bandit security linting, fix bandit warnings, or needs guidance on Python static security analysis with Bandit. |
 | `python-dependency-injection` | This skill should be used when the user asks to implement dependency injection in Python, use the dependency-injector library, decouple Python components, write testable Python services, or needs guidance on Inversion of Control, DI containers, provider types, and wiring in Python applications. |
 | `python-flet` | This skill should be used when the user asks to build a Flet app, create a Python GUI, use Flet framework, write a Flet control, or needs guidance on cross-platform Python UI development with Flet. |
+| `python-mypy` | This skill should be used when the user asks to add mypy to a project, set up static type checking, fix mypy errors, configure mypy, annotate Python code with types, or needs guidance on Python type checking best practices with mypy. |
 | `python-ruff` | This skill should be used when the user asks to configure ruff, set up ruff linting, use ruff formatter, replace flake8 with ruff, or needs guidance on Python code quality with Ruff linting and formatting best practices. |
 | `python-uv` | This skill should be used when the user asks to set up a Python project with uv, manage dependencies with uv, create a uv project, use uv for Python package management, or needs guidance on uv workflows, pyproject.toml configuration, lockfiles, and development dependency groups. |
 | `python` | Apply Python style guide conventions to code |
@@ -119,6 +124,6 @@ The Perfect OpenCode includes several built-in commands that streamline common d
 
 ---
 
-**Generated on:** 2026-02-25 17:08:30 UTC
+**Generated on:** 2026-02-25 18:19:36 UTC
 
 **Repository:** [The Perfect OpenCode](https://github.com/the-perfect-developer/the-perfect-opencode)
