@@ -32,6 +32,12 @@ Also check for existing installed resources in:
 
 Note what's already installed to avoid recommending duplicates.
 
+### Core Commands (Always Install)
+
+The following commands are considered core and should always be included in the installation unless already present:
+
+- **`command:recommend-perfect-tool`** — Analyzes the current project automatically and recommends uninstalled agents/skills/commands without requiring user input. This is a companion to `install-perfect-tools` for ongoing maintenance.
+
 ## Step 4: Ask the User for Their Scope and Needs
 
 Ask the user the following questions (you may ask them all at once):
@@ -70,6 +76,8 @@ bash <(curl -fsSL https://raw.githubusercontent.com/the-perfect-developer/openco
 ```
 
 **MUST** please confirm above example command format with the installation guide you read in Step 1, and adjust if needed based on the actual instructions.
+
+Always include `command:recommend-perfect-tool` in the install command unless it is already installed.
 
 Show the user the exact command you will run, then execute it using the Bash tool.
 
