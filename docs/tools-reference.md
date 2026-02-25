@@ -91,8 +91,9 @@ The Perfect OpenCode includes several built-in commands that streamline common d
 | `/git-push` | Push commits to remote repository | `build` | `github-copilot/claude-haiku-4.5` |
 | `/git-stage-commit-push` | Stage all files, commit with conventional commit message, and push to remote | `build` | `github-copilot/claude-haiku-4.5` |
 | `/implement` | Execute implementation plan with specialized engineering agents | `build` | `github-copilot/claude-sonnet-4.6` |
-| `/install-perfect-tools` | Discover and install perfect agents/skills/commands for your project | `build` | `github-copilot/claude-sonnet-4.5` |
-| `/update-perfect-tools` | Update already-installed perfect tools to their latest versions | `build` | `github-copilot/claude-sonnet-4.5` |
+| `/install-perfect-tools` | Discover and install perfect agents/skills/commands for your project | `build` | `github-copilot/claude-haiku-4.5` |
+| `/recommend-perfect-tool` | Analyze current project and recommend uninstalled agents/skills/commands | `build` | `github-copilot/claude-haiku-4.5` |
+| `/update-perfect-tools` | Update already-installed perfect tools to their latest versions | `build` | `github-copilot/claude-haiku-4.5` |
 
 ---
 
@@ -118,6 +119,6 @@ The Perfect OpenCode includes several built-in commands that streamline common d
 
 ---
 
-**Generated on:** 2026-02-25 04:16:31 UTC
+**Generated on:** 2026-02-25 16:19:38 UTC
 
 **Repository:** [The Perfect OpenCode](https://github.com/the-perfect-developer/the-perfect-opencode)
