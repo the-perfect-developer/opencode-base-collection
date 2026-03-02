@@ -143,10 +143,6 @@
       "description": "This skill should be used when the user asks to write pytest tests, set up pytest best practices, configure pytest, write fixtures, or needs guidance on pytest testing patterns and project structure."
     },
     {
-      "name": "python",
-      "description": "Apply Python style guide conventions to code"
-    },
-    {
       "name": "python-bandit",
       "description": "This skill should be used when the user asks to scan Python code for security issues, set up Bandit, configure bandit security linting, fix bandit warnings, or needs guidance on Python static security analysis with Bandit."
     },
@@ -169,6 +165,10 @@
     {
       "name": "python-uv",
       "description": "This skill should be used when the user asks to set up a Python project with uv, manage dependencies with uv, create a uv project, use uv for Python package management, or needs guidance on uv workflows, pyproject.toml configuration, lockfiles, and development dependency groups."
+    },
+    {
+      "name": "python",
+      "description": "Apply Python style guide conventions to code"
     },
     {
       "name": "rules-creation",
@@ -245,5 +245,5 @@
       "description": "Update already-installed perfect tools to their latest versions"
     }
   ],
-  "generated_at": "2026-03-02T17:15:41Z"
+  "generated_at": "2026-03-02T17:31:57Z"
 }
