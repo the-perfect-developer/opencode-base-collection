@@ -47,12 +47,20 @@
       "description": "This skill should be used when the user asks to build a Capacitor app, add Capacitor to a web project, use Capacitor plugins, configure Capacitor for iOS or Android, or needs guidance on Capacitor best practices, security, storage, deep links, or the development workflow."
     },
     {
+      "name": "claude-agent-sdk",
+      "description": "This skill should be used when the user asks to build an AI agent with Claude, use the Claude Agent SDK, integrate claude-agent-sdk into a project, set up an autonomous agent with tools, or needs guidance on the Anthropic Claude Agent SDK best practices for Python and TypeScript."
+    },
+    {
       "name": "command-creation",
       "description": "This skill should be used when the user asks to create a command, add a custom command, make a slash command, create /command, or needs guidance on creating custom commands in OpenCode."
     },
     {
       "name": "conventional-git-commit",
       "description": "This skill MUST be loaded on every git commit without exception. It should also be used when the user asks to write a conventional commit, format a commit message, follow conventional commits spec, create a semantic commit, make a commit, commit changes, or git commit. Every commit message produced in this project MUST conform to this specification."
+    },
+    {
+      "name": "copilot-sdk",
+      "description": "This skill should be used when the user asks to integrate GitHub Copilot into an app, use the Copilot SDK, build a Copilot-powered agent, embed Copilot in a service, or needs guidance on the GitHub Copilot SDK for Python, TypeScript, Go, or .NET."
     },
     {
       "name": "css",
@@ -73,6 +81,10 @@
     {
       "name": "go",
       "description": "Apply Go style guide conventions to code"
+    },
+    {
+      "name": "google-adk",
+      "description": "This skill should be used when the user asks to build an agent with Google ADK, use the Agent Development Kit, create a Google ADK agent, set up ADK tools, or needs guidance on Google's Agent Development Kit best practices, multi-agent systems, or agent evaluation."
     },
     {
       "name": "html",
@@ -131,6 +143,10 @@
       "description": "This skill should be used when the user asks to write pytest tests, set up pytest best practices, configure pytest, write fixtures, or needs guidance on pytest testing patterns and project structure."
     },
     {
+      "name": "python",
+      "description": "Apply Python style guide conventions to code"
+    },
+    {
       "name": "python-bandit",
       "description": "This skill should be used when the user asks to scan Python code for security issues, set up Bandit, configure bandit security linting, fix bandit warnings, or needs guidance on Python static security analysis with Bandit."
     },
@@ -153,10 +169,6 @@
     {
       "name": "python-uv",
       "description": "This skill should be used when the user asks to set up a Python project with uv, manage dependencies with uv, create a uv project, use uv for Python package management, or needs guidance on uv workflows, pyproject.toml configuration, lockfiles, and development dependency groups."
-    },
-    {
-      "name": "python",
-      "description": "Apply Python style guide conventions to code"
     },
     {
       "name": "rules-creation",
@@ -233,5 +245,5 @@
       "description": "Update already-installed perfect tools to their latest versions"
     }
   ],
-  "generated_at": "2026-02-25T18:27:48Z"
+  "generated_at": "2026-03-02T17:15:41Z"
 }
