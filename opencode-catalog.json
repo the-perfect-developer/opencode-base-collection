@@ -9,6 +9,10 @@
       "description": "Backend Engineer - Implements backend features, APIs, database operations, and services based on consultant/architect suggestions"
     },
     {
+      "name": "code-analyst",
+      "description": "Analyzes complex code to explain architecture, logic, data flow, and design patterns. Use when you need to understand unfamiliar codebases, trace execution paths, or decode intricate algorithms."
+    },
+    {
       "name": "frontend-engineer",
       "description": "Frontend Engineer & UI/UX Specialist - Focus on user interfaces, React/Vue/Angular, accessibility, responsive design, and delightful user experiences"
     },
@@ -265,5 +269,5 @@
       "description": "Update already-installed perfect tools to their latest versions"
     }
   ],
-  "generated_at": "2026-03-03T17:42:21Z"
+  "generated_at": "2026-03-03T19:07:55Z"
 }
