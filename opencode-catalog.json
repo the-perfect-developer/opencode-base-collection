@@ -217,11 +217,19 @@
       "description": "Create a new OpenCode command with interactive requirements gathering"
     },
     {
+      "name": "create-rule",
+      "description": "Add a MUST FOLLOW rule to AGENTS.md"
+    },
+    {
       "name": "create-skill",
       "description": "Create a new OpenCode skill with proper structure and frontmatter"
     },
     {
-      "name": "extended-planning",
+      "name": "extended-implement",
+      "description": "Execute implementation plan with specialized engineering agents"
+    },
+    {
+      "name": "extended-plan",
       "description": "Gather requirements, analyze code, and create implementation plan"
     },
     {
@@ -245,6 +253,10 @@
       "description": "Discover and install perfect agents/skills/commands for your project"
     },
     {
+      "name": "plan",
+      "description": "Gather requirements, analyze code, and create implementation plan"
+    },
+    {
       "name": "recommend-perfect-tool",
       "description": "Analyze current project and recommend uninstalled agents/skills/commands"
     },
@@ -253,5 +265,5 @@
       "description": "Update already-installed perfect tools to their latest versions"
     }
   ],
-  "generated_at": "2026-03-03T08:48:46Z"
+  "generated_at": "2026-03-03T10:06:50Z"
 }
