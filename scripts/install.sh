@@ -60,18 +60,18 @@ done
 print_header() {
     echo -e "${BLUE}"
     cat << "EOF"
-  _____ _            ____            __           _   
- |_   _| |__   ___  |  _ \ ___ _ __ / _| ___  ___| |_ 
+  _____ _            ____            __           _
+ |_   _| |__   ___  |  _ \ ___ _ __ / _| ___  ___| |_
    | | | '_ \ / _ \ | |_) / _ \ '__| |_ / _ \/ __| __|
-   | | | | | |  __/ |  __/  __/ |  |  _|  __/ (__| |_ 
+   | | | | | |  __/ |  __/  __/ |  |  _|  __/ (__| |_
    |_| |_| |_|\___| |_|   \___|_|  |_|  \___|\___|\__|
-                                                       
-   ___                   ___          _      
-  / _ \ _ __   ___ _ __ / __\___   __| | ___ 
+
+   ___                   ___          _
+  / _ \ _ __   ___ _ __ / __\___   __| | ___
  | | | | '_ \ / _ \ '_ / /  / _ \ / _` |/ _ \
  | |_| | |_) |  __/ | | /__| (_) | (_| |  __/
   \___/| .__/ \___|_| \____/\___/ \__,_|\___|
-       |_|                                    
+       |_|
 EOF
     echo -e "${NC}"
 }
@@ -253,10 +253,3 @@ fi
 # Custom actions that always run, regardless of install arguments.
 echo ""
 echo -e "${BLUE}ℹ${NC} Running custom post-install steps..."
-
-# Remove the renamed 'extended-planning' skill (superseded by the 'extended-plan' command)
-EXTENDED_PLANNING_SKILL="${SKILLS_DIR}/extended-planning"
-if [ -d "$EXTENDED_PLANNING_SKILL" ]; then
-    rm -rf "$EXTENDED_PLANNING_SKILL"
-    echo -e "  ${GREEN}✓${NC} Removed obsolete skill: extended-planning"
-fi
