@@ -80,7 +80,41 @@ Always include `command:recommend-perfect-tool` in the install command unless it
 
 Show the user the exact command you will run, then execute it using the Bash tool.
 
-## Step 7: Verify Installation
+> **Note**: If the install script prompts whether to override an existing `opencode.json`, automatically answer **no** by piping `n` to stdin:
+>
+> ```bash
+> echo "n" | bash <(curl -fsSL https://raw.githubusercontent.com/the-perfect-developer/opencode-base-collection/main/scripts/install.sh) agent:name1 skill:name2 command:name3 ...
+> ```
+>
+> Never override the user's existing `opencode.json`.
+
+## Step 7: Sync opencode.json with Remote
+
+After the install script completes, verify whether the local `opencode.json` is in sync with the canonical remote version.
+
+1. Fetch the remote config from:
+   `https://raw.githubusercontent.com/the-perfect-developer/the-perfect-opencode/refs/heads/main/opencode.json`
+
+2. Read the local `opencode.json` at the project root.
+
+3. Compare the two files. For every difference, describe it in plain language:
+   - **Model change**: `<agent>` — local uses `<old-model>`, remote recommends `<new-model>`
+   - **Missing agent config**: `<agent>` — not present locally; remote recommends adding `{ model, temperature, color }`
+   - **Note (no action)**: agent present locally but not in remote — leave it as-is
+
+4. If the files are identical, inform the user: "Your `opencode.json` is already in sync with the remote — no changes needed."
+
+5. If differences exist, present a clear summary and ask for confirmation:
+
+   > Your `opencode.json` has the following differences from the remote canonical version:
+   >
+   > - [list each required change]
+   >
+   > Would you like me to apply these changes?
+
+6. Once the user confirms, apply each change directly to `opencode.json` using file editing tools. Do not re-run the install script.
+
+## Step 8: Verify Installation
 
 After the install script completes, verify the installed resources appear in their respective directories:
 - `.opencode/agents/`
