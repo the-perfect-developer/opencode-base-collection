@@ -69,10 +69,13 @@ The Perfect OpenCode comes with a comprehensive collection of skills covering pr
 | `planning` | This skill should be used when the user asks to create an implementation plan, plan a feature, create detailed plan, analyze requirements, or needs comprehensive project planning with requirements gathering and architectural analysis. |
 | `pydantic` | This skill should be used when the user asks to validate data with pydantic, create a pydantic model, use pydantic best practices, write pydantic validators, or needs guidance on pydantic v2 patterns, serialization, configuration, or performance optimization. |
 | `pytest` | This skill should be used when the user asks to write pytest tests, set up pytest best practices, configure pytest, write fixtures, or needs guidance on pytest testing patterns and project structure. |
+| `python-aiomysql` | This skill should be used when the user asks to connect to MySQL with asyncio, use aiomysql, set up an async MySQL connection pool, query MySQL asynchronously in Python, or needs guidance on aiomysql best practices, connection lifecycle, transactions, or cursor types. |
 | `python-bandit` | This skill should be used when the user asks to scan Python code for security issues, set up Bandit, configure bandit security linting, fix bandit warnings, or needs guidance on Python static security analysis with Bandit. |
+| `python-bigquery-sdk` | This skill should be used when the user asks to query BigQuery with Python, use the google-cloud-bigquery SDK, load data into BigQuery, define a BigQuery schema, or needs guidance on best practices for the Python BigQuery client library. |
 | `python-dependency-injection` | This skill should be used when the user asks to implement dependency injection in Python, use the dependency-injector library, decouple Python components, write testable Python services, or needs guidance on Inversion of Control, DI containers, provider types, and wiring in Python applications. |
 | `python-flet` | This skill should be used when the user asks to build a Flet app, create a Python GUI, use Flet framework, write a Flet control, or needs guidance on cross-platform Python UI development with Flet. |
 | `python-mypy` | This skill should be used when the user asks to add mypy to a project, set up static type checking, fix mypy errors, configure mypy, annotate Python code with types, or needs guidance on Python type checking best practices with mypy. |
+| `python-pymysql` | This skill should be used when the user asks to connect to MySQL with PyMySQL, use PyMySQL in Python, query a MySQL database with Python, set up PyMySQL, or needs guidance on PyMySQL best practices, transactions, parameterized queries, or cursor types. |
 | `python-ruff` | This skill should be used when the user asks to configure ruff, set up ruff linting, use ruff formatter, replace flake8 with ruff, or needs guidance on Python code quality with Ruff linting and formatting best practices. |
 | `python-uv` | This skill should be used when the user asks to set up a Python project with uv, manage dependencies with uv, create a uv project, use uv for Python package management, or needs guidance on uv workflows, pyproject.toml configuration, lockfiles, and development dependency groups. |
 | `python` | Apply Python style guide conventions to code |
@@ -133,6 +136,6 @@ The Perfect OpenCode includes several built-in commands that streamline common d
 
 ---
 
-**Generated on:** 2026-03-03 19:18:13 UTC
+**Generated on:** 2026-03-05 15:34:00 UTC
 
 **Repository:** [The Perfect OpenCode](https://github.com/the-perfect-developer/the-perfect-opencode)
