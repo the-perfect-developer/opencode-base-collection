@@ -155,8 +155,16 @@
       "description": "This skill should be used when the user asks to write pytest tests, set up pytest best practices, configure pytest, write fixtures, or needs guidance on pytest testing patterns and project structure."
     },
     {
+      "name": "python-aiomysql",
+      "description": "This skill should be used when the user asks to connect to MySQL with asyncio, use aiomysql, set up an async MySQL connection pool, query MySQL asynchronously in Python, or needs guidance on aiomysql best practices, connection lifecycle, transactions, or cursor types."
+    },
+    {
       "name": "python-bandit",
       "description": "This skill should be used when the user asks to scan Python code for security issues, set up Bandit, configure bandit security linting, fix bandit warnings, or needs guidance on Python static security analysis with Bandit."
+    },
+    {
+      "name": "python-bigquery-sdk",
+      "description": "This skill should be used when the user asks to query BigQuery with Python, use the google-cloud-bigquery SDK, load data into BigQuery, define a BigQuery schema, or needs guidance on best practices for the Python BigQuery client library."
     },
     {
       "name": "python-dependency-injection",
@@ -169,6 +177,10 @@
     {
       "name": "python-mypy",
       "description": "This skill should be used when the user asks to add mypy to a project, set up static type checking, fix mypy errors, configure mypy, annotate Python code with types, or needs guidance on Python type checking best practices with mypy."
+    },
+    {
+      "name": "python-pymysql",
+      "description": "This skill should be used when the user asks to connect to MySQL with PyMySQL, use PyMySQL in Python, query a MySQL database with Python, set up PyMySQL, or needs guidance on PyMySQL best practices, transactions, parameterized queries, or cursor types."
     },
     {
       "name": "python-ruff",
@@ -269,5 +281,5 @@
       "description": "Update already-installed perfect tools to their latest versions"
     }
   ],
-  "generated_at": "2026-03-03T19:18:05Z"
+  "generated_at": "2026-03-05T15:33:51Z"
 }
