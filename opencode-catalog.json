@@ -175,6 +175,10 @@
       "description": "This skill should be used when the user asks to build a Flet app, create a Python GUI, use Flet framework, write a Flet control, or needs guidance on cross-platform Python UI development with Flet."
     },
     {
+      "name": "python-mcp",
+      "description": "This skill should be used when the user asks to build an MCP server, create an MCP tool, expose resources with MCP, write an MCP client, or needs guidance on the Model Context Protocol Python SDK best practices, transports, server primitives, or LLM context integration."
+    },
+    {
       "name": "python-mypy",
       "description": "This skill should be used when the user asks to add mypy to a project, set up static type checking, fix mypy errors, configure mypy, annotate Python code with types, or needs guidance on Python type checking best practices with mypy."
     },
@@ -281,5 +285,5 @@
       "description": "Update already-installed perfect tools to their latest versions"
     }
   ],
-  "generated_at": "2026-03-05T15:33:51Z"
+  "generated_at": "2026-03-05T15:44:38Z"
 }
