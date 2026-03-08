@@ -7,9 +7,11 @@ tools:
   bash: true
   webfetch: true
 permission:
+  write: ask
   edit: ask
   bash:
     "*": ask
+    # --- Filesystem read ---
     "ls*": allow
     "pwd": allow
     "which*": allow
@@ -19,42 +21,148 @@ permission:
     "tail*": allow
     "wc*": allow
     "file*": allow
+    "stat*": allow
+    "du*": allow
+    "df*": allow
+    # --- Search & text processing ---
     "grep*": allow
     "rg*": allow
     "find*": allow
     "tree*": allow
+    "awk*": allow
+    "sort*": allow
+    "cut*": allow
+    "uniq*": allow
+    "tr*": allow
+    "comm*": allow
+    "diff*": allow
+    "jq*": allow
+    "yq*": allow
+    # --- Output ---
     "echo*": allow
     "printf*": allow
+    # --- Environment ---
     "env": allow
     "printenv*": allow
+    # --- System info ---
+    "uname*": allow
+    "arch": allow
+    "nproc": allow
+    "hostname": allow
+    "uptime": allow
+    "free*": allow
+    "date": allow
+    "date +*": allow
+    # --- File integrity ---
+    "sha256sum*": allow
+    "md5sum*": allow
+    "sha1sum*": allow
+    # --- Runtime version checks (exact strings — no globs) ---
+    "node --version": allow
+    "node -v": allow
+    "python --version": allow
+    "python3 --version": allow
+    "go version": allow
+    "bun --version": allow
+    "deno --version": allow
+    "npm --version": allow
+    "yarn --version": allow
+    "pnpm --version": allow
+    # --- Package inspection (read-only) ---
+    "npm ls*": allow
+    "npm list*": allow
+    "npm view*": allow
+    "npm outdated": allow
+    "yarn list": allow
+    "yarn outdated": allow
+    "pnpm list": allow
+    "pnpm outdated": allow
+    # --- Process inspection ---
+    "pgrep*": allow
+    "pidof*": allow
+    "ps*": ask
+    "lsof*": ask
+    # --- Git read ---
     "git status": allow
     "git diff*": allow
     "git log*": allow
     "git show*": allow
     "git branch*": allow
     "git remote*": allow
+    "git ls-files*": allow
+    "git blame*": allow
+    "git describe*": allow
+    "git rev-parse*": allow
+    "git stash list": allow
+    "git tag": allow
+    "git tag -l*": allow
+    "git config --get*": allow
+    # --- Git write (safe) ---
+    "git add*": allow
+    "git commit*": allow
+    "git stash*": allow
+    "git switch*": allow
+    "git checkout*": ask
+    "git push*": ask
+    "git reset*": ask
+    "git merge*": ask
+    "git tag*": ask
+    # --- Network ---
+    "curl*": ask
+    "ping*": ask
+    "dig*": ask
+    "nslookup*": ask
+    "ss*": ask
+    "netstat*": ask
+    # --- npm / yarn / pnpm (including install — bug fix) ---
+    "npm install": allow
+    "npm ci": allow
     "npm run dev": allow
     "npm run build": allow
     "npm run test": allow
+    "npm run lint*": allow
+    "npm run format*": allow
+    "npm run storybook*": allow
     "npm test": allow
+    "npm audit": allow
+    "npm audit fix": ask
+    "yarn install": allow
     "yarn dev": allow
     "yarn build": allow
     "yarn test": allow
+    "yarn audit": allow
+    "pnpm install": allow
     "pnpm dev": allow
     "pnpm build": allow
     "pnpm test": allow
-    "npm audit": allow
-    "npm audit fix": allow
-    "yarn audit": allow
     "pnpm audit": allow
-    "npm outdated": allow
-    "yarn outdated": allow
-    "pnpm outdated": allow
-    "npm list": allow
-    "yarn list": allow
-    "pnpm list": allow
-    "* /tmp/*": allow
-    "cd /tmp*": allow
+    "bun install": allow
+    "bun run*": allow
+    # --- TypeScript / frontend tooling ---
+    "npx tsc*": allow
+    "npx eslint*": allow
+    "npx prettier*": allow
+    "npx playwright*": allow
+    "npx cypress*": allow
+    "npx vite*": allow
+    "npx storybook*": allow
+    "npx*": ask
+    # --- Build size analysis ---
+    "time npm*": allow
+    "webpack --profile*": allow
+    "vite build*": allow
+    # --- Filesystem write (implementer) ---
+    "mkdir*": allow
+    "touch*": allow
+    "cp*": ask
+    "mv*": ask
+    "rm*": ask
+    "chmod*": ask
+    "ln -s*": ask
+    # --- Bash validation ---
+    "bash -n*": allow
+    # --- /tmp sandbox ---
+    "* /tmp*": allow
   webfetch: allow
 ---
 

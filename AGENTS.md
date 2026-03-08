@@ -93,20 +93,72 @@ A SKILL.md is valid when:
 YAML frontmatter fields:
 ```yaml
 ---
-name: agent-name
 description: "..."
-model: github-copilot/<model-id>
-temperature: 0.1–0.5
-tools: [list, of, allowed, tools]
-permission:
+mode: subagent
+tools:
   write: true|false
   edit: true|false
+  bash: true
+  webfetch: true
+permission:
+  write: ask          # implementers only
+  edit: ask           # implementers only (consultants omit or set ask)
+  bash:
+    "*": ask          # REQUIRED: default deny-with-prompt for all bash
+    "ls*": allow
+    # ... per-command overrides (see below)
+  webfetch: allow
 ---
 ```
 
-- Consultant agents (architect, security-expert, performance-engineer): `write: false`, `edit: false`
-- Implementer agents (backend-engineer, frontend-engineer, junior-engineer): `write: true`, `edit: true`
-- Lower temperature (0.1–0.2) for analytical/security work; higher (0.4–0.5) for creative/frontend
+#### Agent Roles
+
+| Role | Agents | `tools.write` | `tools.edit` | Can commit? |
+|---|---|---|---|---|
+| Consultant | architect, code-analyst, performance-engineer, security-expert | `false` | `false` | No |
+| Implementer | backend-engineer, frontend-engineer, junior-engineer | `true` | `true` | Yes |
+
+#### Bash Permission Model
+
+All agents share a common baseline of `allow` rules, with role-specific additions:
+
+**Universal (all 7 agents — always `allow`)**
+- Filesystem read: `ls*`, `pwd`, `which*`, `whoami`, `cat*`, `head*`, `tail*`, `wc*`, `file*`, `stat*`, `du*`, `df*`
+- Search & text: `grep*`, `rg*`, `find*`, `tree*`, `awk*`, `sort*`, `cut*`, `uniq*`, `tr*`, `comm*`, `diff*`, `jq*`, `yq*`
+- Output: `echo*`, `printf*`
+- Environment: `env`, `printenv*`
+- System info: `uname*`, `arch`, `nproc`, `hostname`, `uptime`, `free*`, `date`, `date +*`
+- File integrity: `sha256sum*`, `md5sum*`, `sha1sum*`
+- Runtime versions (exact strings, no globs): `node --version`, `node -v`, `python --version`, `python3 --version`, `go version`, `go env*`, `rustc --version`, `cargo --version`, `bun --version`, `deno --version`, `java --version`, `ruby --version`, `npm --version`, `yarn --version`, `pnpm --version`
+- Package inspection: `npm ls*`, `npm list*`, `npm view*`, `pip list`, `pip show*`, `pip freeze`, `go list*`, `cargo metadata`, `cargo tree*`, `gem list`
+- Process inspection: `pgrep*`, `pidof*` (but `ps*` and `lsof*` are `ask`)
+- Git read: `git status`, `git diff*`, `git log*`, `git show*`, `git branch*`, `git remote*`, `git ls-files*`, `git blame*`, `git describe*`, `git rev-parse*`, `git stash list`, `git tag`, `git tag -l*`, `git config --get*`
+- `/tmp` sandbox: `"* /tmp*": allow`
+
+**Always `ask` (all 7 agents)**
+- Network: `curl*`, `ping*`, `dig*`, `nslookup*`, `ss*`, `netstat*`
+- Process inspection: `ps*`, `lsof*`
+- `make -n*`
+
+**Consultant-specific additions**
+- performance-engineer: timing/profiling (`time *`, `hyperfine*`, `vmstat*`, `iostat*`, `sar*`, `lscpu`, `ulimit -a`, `sysctl -n*`, `sysctl -a`), benchmarking (`ab *`, `wrk *`, `perf stat*`, `perf record * /tmp*`, `perf report*`), language profilers (`py-spy*`, `python -m cProfile*`, `python -m timeit*`, `go test -bench*`, `go tool pprof*`, `node --cpu-prof*`, etc.)
+- security-expert: `getfacl*`, `npm audit`, `yarn audit`, `pnpm audit`, `pip-audit*`, `cargo audit*`, `openssl x509*`
+
+**Implementer-specific additions**
+- Git write: `git add*`, `git commit*`, `git stash*`, `git switch*` (`allow`); `git checkout*`, `git push*`, `git reset*`, `git merge*`, `git rebase*`, `git tag*` (`ask`)
+- Package managers: `npm install`, `npm ci`, `npm run dev/build/test/lint/format`, `yarn install/dev/build/test`, `pnpm install/dev/build/test`, `bun install`, `bun run*`
+- Language build/test: `python -m pytest*`, `pytest*`, `pip install*`, `uv pip install*`, `ruff check/format*`, `mypy*`, `go test/build/run*`, `go mod tidy/download`, `cargo test/build/run/fmt/clippy*`
+- Filesystem write: `mkdir*`, `touch*` (`allow`); `cp*`, `mv*`, `rm*`, `chmod*`, `ln -s*` (`ask`)
+- Syntax validation: `bash -n*`
+
+#### Safety Rules When Authoring Permissions
+
+- Use **exact strings** for version checks — never bare globs: `"node --version": allow` not `"node*": allow`
+- Do NOT use `"git tag*"` glob — use `"git tag": allow` and `"git tag -l*": allow` separately (the glob would also match `git tag -d`)
+- Do NOT use `"date*"` glob — use `"date": allow` and `"date +*": allow` separately (the glob matches `date -s` which sets system time)
+- Do NOT give consultants `tee*`, `patch*`, or `xargs*` — they write files or execute arbitrary commands
+- Keep `rm*`, `docker exec*`, `git push*`, `git reset*` at `ask` — never `allow`
+- `/tmp` sandbox (`"* /tmp*": allow`) covers all subpaths — no need for additional `/tmp` rules
 
 ### TypeScript (Google Style — enforced by ESLint)
 

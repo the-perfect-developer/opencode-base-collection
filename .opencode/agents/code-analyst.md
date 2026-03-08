@@ -9,6 +9,7 @@ tools:
 permission:
   bash:
     "*": ask
+    # --- Filesystem read ---
     "ls*": allow
     "pwd": allow
     "which*": allow
@@ -18,20 +19,102 @@ permission:
     "tail*": allow
     "wc*": allow
     "file*": allow
+    "stat*": allow
+    "du*": allow
+    "df*": allow
+    # --- Search & text processing ---
     "grep*": allow
     "rg*": allow
     "find*": allow
     "tree*": allow
+    "awk*": allow
+    "sort*": allow
+    "cut*": allow
+    "uniq*": allow
+    "tr*": allow
+    "comm*": allow
+    "diff*": allow
+    "jq*": allow
+    "yq*": allow
+    # --- Output ---
     "echo*": allow
     "printf*": allow
+    # --- Environment ---
     "env": allow
     "printenv*": allow
+    # --- System info ---
+    "uname*": allow
+    "arch": allow
+    "nproc": allow
+    "hostname": allow
+    "uptime": allow
+    "free*": allow
+    "date": allow
+    "date +*": allow
+    # --- File integrity ---
+    "sha256sum*": allow
+    "md5sum*": allow
+    "sha1sum*": allow
+    # --- Runtime version checks (exact strings — no globs) ---
+    "node --version": allow
+    "node -v": allow
+    "python --version": allow
+    "python3 --version": allow
+    "go version": allow
+    "go env*": allow
+    "rustc --version": allow
+    "cargo --version": allow
+    "bun --version": allow
+    "deno --version": allow
+    "java --version": allow
+    "ruby --version": allow
+    "npm --version": allow
+    "yarn --version": allow
+    "pnpm --version": allow
+    # --- Package inspection (read-only) ---
+    "npm ls*": allow
+    "npm list*": allow
+    "npm view*": allow
+    "pip list": allow
+    "pip show*": allow
+    "pip freeze": allow
+    "go list*": allow
+    "cargo metadata": allow
+    "cargo tree*": allow
+    "gem list": allow
+    # --- Process inspection ---
+    "pgrep*": allow
+    "pidof*": allow
+    "ps*": ask
+    "lsof*": ask
+    # --- Git read ---
     "git status": allow
     "git diff*": allow
     "git log*": allow
     "git show*": allow
     "git branch*": allow
     "git remote*": allow
+    "git ls-files*": allow
+    "git blame*": allow
+    "git describe*": allow
+    "git rev-parse*": allow
+    "git stash list": allow
+    "git tag": allow
+    "git tag -l*": allow
+    "git config --get*": allow
+    # --- Network (ask — SSRF/recon risk) ---
+    "curl*": ask
+    "ping*": ask
+    "dig*": ask
+    "nslookup*": ask
+    "ss*": ask
+    "netstat*": ask
+    # --- Build helpers (read-only) ---
+    "cmake --version": allow
+    "mvn dependency:tree*": allow
+    "make -n*": ask
+    # --- /tmp sandbox ---
+    "* /tmp*": allow
   webfetch: allow
 ---
 

@@ -55,9 +55,25 @@ After the initial install, use these commands to manage your tools from within O
 
 ## Development Workflow
 
+### Quick Tasks (Plan + Implement in One Shot)
+
+For tasks where you want planning and implementation to happen without interruption, use `/quickee`:
+
+```
+/quickee add a dark mode toggle to the settings page
+```
+
+`/quickee` runs on the `build` agent and combines planning and implementation into a single flow:
+
+1. **Clarify** — asks focused questions if the task is ambiguous, then stops asking
+2. **Plan** — consults @code-analyst, @architect, @security-expert, and @performance-engineer in parallel to produce a concise plan
+3. **Implement** — immediately executes the plan using @backend-engineer, @frontend-engineer, and @junior-engineer in parallel
+
+No manual handoff between `/plan` and `/implement` — ideal for well-scoped tasks where you want fast, structured output.
+
 ### Lightweight Tasks
 
-For everyday features and tasks, use the quick workflow:
+For everyday features where you want to review the plan before implementation:
 
 ```
 /plan    build a user authentication flow

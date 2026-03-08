@@ -32,7 +32,7 @@ declare -a SELECTED_COMMANDS
 # Core items that are always installed (bare minimum requirements)
 CORE_AGENTS=("architect" "backend-engineer" "code-analyst" "frontend-engineer" "junior-engineer" "performance-engineer" "security-expert")
 CORE_SKILLS=("agent-configuration" "command-creation" "skill-creation" "planning" "implementation")
-CORE_COMMANDS=("create-agent" "create-command" "create-rule" "create-skill" "extended-implement" "extended-plan" "implement" "install-perfect-tools" "plan" "update-perfect-tools")
+CORE_COMMANDS=("create-agent" "create-command" "create-rule" "create-skill" "extended-implement" "extended-plan" "implement" "install-perfect-tools" "plan" "quickee" "update-perfect-tools")
 
 # Parse command line arguments
 INSTALL_ALL=true
@@ -260,7 +260,10 @@ OPENCODE_JSON_DEST="${REPO_ROOT}/opencode.json"
 if [ -f "$OPENCODE_JSON_SOURCE" ]; then
     if [ -f "$OPENCODE_JSON_DEST" ]; then
         echo -e "  ${YELLOW}⚠${NC} opencode.json already exists at: ${OPENCODE_JSON_DEST}"
-        read -r -p "  Overwrite? [y/N] " response
+        echo -e "  ${BLUE}💡 Tip:${NC} To avoid conflicts, open OpenCode and run ${GREEN}/sync-perfect-configs${NC}"
+        echo -e "     This will compare your config with the remote and apply only the necessary changes."
+        echo ""
+        read -r -p "  Overwrite anyway? [y/N] " response
         case "$response" in
             [yY][eE][sS]|[yY])
                 cp "$OPENCODE_JSON_SOURCE" "$OPENCODE_JSON_DEST"
