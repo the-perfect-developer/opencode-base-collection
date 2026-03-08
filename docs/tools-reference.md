@@ -58,6 +58,7 @@ The Perfect OpenCode comes with a comprehensive collection of skills covering pr
 | `html` | Apply Google HTML style guide conventions to HTML code |
 | `htmx` | Provides guidance for building dynamic interactive web applications using htmx library with AJAX requests and dynamic content swapping |
 | `implementation` | This skill should be used when the user asks to implement a plan, execute implementation, build from plan, implement feature, or needs to orchestrate execution of an implementation plan with specialized engineering agents. |
+| `interactive-questions` | This skill should be used when the user asks to ask questions interactively, use the question tool, present choices to the user, avoid yes/no prompts, use interactive confirmations, or needs guidance on asking structured questions with selectable options instead of free-text prompts. |
 | `javascript` | This skill should be used when the user asks to \write JavaScript code\, \follow JavaScript style guide\, \format JS files\, \create Node.js scripts\, or needs guidance on JavaScript/Node.js coding standards and best practices. |
 | `json-style` | This skill should be used when the user asks to format JSON, design JSON API, write JSON response, structure JSON data, or needs guidance on JSON naming conventions and best practices based on Google's JSON Style Guide. |
 | `markdown` | This skill should be used when the user asks to format markdown, write markdown documentation, follow markdown style guide, apply markdown conventions, or needs guidance on markdown best practices. |
@@ -138,6 +139,6 @@ The Perfect OpenCode includes several built-in commands that streamline common d
 
 ---
 
-**Generated on:** 2026-03-08 18:16:53 UTC
+**Generated on:** 2026-03-08 18:26:42 UTC
 
 **Repository:** [The Perfect OpenCode](https://github.com/the-perfect-developer/the-perfect-opencode)
