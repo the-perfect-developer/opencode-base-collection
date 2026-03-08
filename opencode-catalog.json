@@ -187,6 +187,10 @@
       "description": "This skill should be used when the user asks to add mypy to a project, set up static type checking, fix mypy errors, configure mypy, annotate Python code with types, or needs guidance on Python type checking best practices with mypy."
     },
     {
+      "name": "python-pip-audit",
+      "description": "This skill should be used when the user asks to audit Python dependencies for vulnerabilities, scan requirements.txt for CVEs, set up pip-audit, fix vulnerable Python packages, or needs guidance on Python dependency security scanning with pip-audit."
+    },
+    {
       "name": "python-pymysql",
       "description": "This skill should be used when the user asks to connect to MySQL with PyMySQL, use PyMySQL in Python, query a MySQL database with Python, set up PyMySQL, or needs guidance on PyMySQL best practices, transactions, parameterized queries, or cursor types."
     },
@@ -293,5 +297,5 @@
       "description": "Update already-installed perfect tools to their latest versions"
     }
   ],
-  "generated_at": "2026-03-08T18:26:51Z"
+  "generated_at": "2026-03-08T19:16:16Z"
 }
