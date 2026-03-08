@@ -277,13 +277,21 @@
       "description": "Gather requirements, analyze code, and create implementation plan"
     },
     {
+      "name": "quickee",
+      "description": "Plan then immediately implement — efficient agent-driven workflow for any task"
+    },
+    {
       "name": "recommend-perfect-tool",
       "description": "Analyze current project and recommend uninstalled agents/skills/commands"
+    },
+    {
+      "name": "sync-perfect-configs",
+      "description": "Sync local opencode.json with the canonical remote version"
     },
     {
       "name": "update-perfect-tools",
       "description": "Update already-installed perfect tools to their latest versions"
     }
   ],
-  "generated_at": "2026-03-05T15:44:38Z"
+  "generated_at": "2026-03-08T17:38:13Z"
 }
