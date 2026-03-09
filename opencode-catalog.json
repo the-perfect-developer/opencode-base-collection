@@ -17,6 +17,10 @@
       "description": "Frontend Engineer & UI/UX Specialist - Focus on user interfaces, React/Vue/Angular, accessibility, responsive design, and delightful user experiences"
     },
     {
+      "name": "ideation-expert",
+      "description": ">"
+    },
+    {
       "name": "junior-engineer",
       "description": "Junior Engineer - Fast, focused implementation of small features, bug fixes, and straightforward tasks under 30 minutes"
     },
@@ -105,6 +109,10 @@
     {
       "name": "htmx",
       "description": "Provides guidance for building dynamic interactive web applications using htmx library with AJAX requests and dynamic content swapping"
+    },
+    {
+      "name": "ideation",
+      "description": "This skill should be used when the user asks to ideate on, brainstorm an idea, let's argue this through, challenge my thinking, help me refine this concept, let's stress-test this, or needs a structured framework for collaborative idea generation, adversarial refinement, and convergence toward the best possible solution. Load this skill before running any ideation or brainstorming session."
     },
     {
       "name": "implementation",
@@ -269,6 +277,10 @@
       "description": "Push committed changes to remote — never stages or commits anything"
     },
     {
+      "name": "ideate",
+      "description": "Start an ideation session with the Ideation Expert"
+    },
+    {
       "name": "implement",
       "description": "Execute implementation plan with specialized engineering agents"
     },
@@ -297,5 +309,5 @@
       "description": "Update already-installed perfect tools to their latest versions"
     }
   ],
-  "generated_at": "2026-03-08T19:16:16Z"
+  "generated_at": "2026-03-09T19:10:29Z"
 }
